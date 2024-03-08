@@ -1,3 +1,12 @@
-user_name: "John Stat"
-company: "ONS"
-favourite_number: 42
+
+
+url: 'https://digital.nhs.uk/data-and-information/publications/statistical/appointments-in-general-practice/january-2023'
+
+
+nims:
+  regex: "Covid Vaccination Appointments"
+  filename: "nims"
+
+summary:
+  regex: "^Appointments.*Summary$"
+  filename: "summary"
