@@ -1,4 +1,4 @@
-name: {{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env
+name: 'hook_test_env' #{{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env
 channels:
   - conda-forge
 dependencies:

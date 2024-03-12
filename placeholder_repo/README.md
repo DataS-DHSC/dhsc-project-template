@@ -134,3 +134,21 @@ project][govcookiecutter].
 [govcookiecutter]: https://github.com/best-practice-and-impact/govcookiecutter
 [docs-loading-environment-variables]: https://github.com/best-practice-and-impact/govcookiecutter/blob/main/%7B%7B%20cookiecutter.repo_name%20%7D%7D/docs/user_guide/loading_environment_variables.md
 [docs-loading-environment-variables-secrets]: https://github.com/best-practice-and-impact/govcookiecutter/blob/main/%7B%7B%20cookiecutter.repo_name%20%7D%7D/docs/user_guide/loading_environment_variables.md#storing-secrets-and-credentials
+
+
+
+## Project Structure 
+
+
+├───.github
+│   └───workflows
+└───placeholder_repo
+    ├───data
+    │   ├───external
+    │   ├───interim
+    │   ├───processed
+    │   └───raw
+    ├───outputs
+    └───src
+        └───placeholder_module
+            └───example_modules
