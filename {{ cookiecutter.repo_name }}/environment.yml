@@ -1,7 +1,8 @@
-name: 'hook_test_env' #{{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env
+name: 'hook_test_env' {{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env
 channels:
   - conda-forge
 dependencies:
+  - python= {{ cookiecutter.python_version }}
   - bzip2=1.0.8=hcfcfb64_5
   - ca-certificates=2024.2.2=h56e8100_0
   - cffi=1.16.0=py312he70551f_0

@@ -860,7 +860,7 @@ data/*
 !data/README.md
 
 # Ignore the contents of the `outputs` folder
-output/
+#output/
 
 # Ignore the contents of the `input` folder
 input/
