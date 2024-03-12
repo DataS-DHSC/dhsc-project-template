@@ -860,7 +860,10 @@ data/*
 !data/README.md
 
 # Ignore the contents of the `outputs` folder
-outputs/
+output/
+
+# Ignore the contents of the `input` folder
+input/
 
 # Ignore the contents of the `data` sub-folders, except for their `.gitkeep` files; adapted from
 # https://stackoverflow.com/a/20652768

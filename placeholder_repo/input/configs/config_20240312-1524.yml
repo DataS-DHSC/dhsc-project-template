@@ -1,8 +1,0 @@
-date_stamp: 20240312-1524
-nims:
-  file_name: nims
-  regex: Covid Vaccination Appointments
-summary:
-  file_name: summary
-  regex: ^Appointments.*Summary$
-url: https://digital.nhs.uk/data-and-information/publications/statistical/appointments-in-general-practice/january-2023
