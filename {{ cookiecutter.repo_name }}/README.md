@@ -7,47 +7,35 @@ Where this documentation refers to the root folder we mean where this README.md 
 located.
 ```
 
-## Getting started
+## Getting started / Setting up 
 
 To start using this project, [first make sure your system meets its
 requirements](#requirements).
 
-It's suggested that you install this pack and it's requirements within a virtual environment.
-
-## Installing the package (Python Only)
-
-Whilst in the root folder, in the command prompt, you can install the package and its dependencies
-using:
+In order to setup your project, navigate to the root directory and run 
 
 ```shell
-python -m pip install -U pip setuptools
-pip install -e .
+bash setup_project.bat
 ```
-or use the `make` command:
-```shell
-make install
-```
+This will perform a number of steps for you, including:
+* Setting up a [virtual environment] #virtual-environments
+* Installing pre-commit hooks #pre-commit-hooks
+* Initalising a git repository 
 
-This installs an editable version of the package. Meaning, when you update the
-package code, you do not have to reinstall it for the changes to take effect.
-(This saves a lot of time when you test your code)
+## Virtual environments
 
-Remember to update the setup and requirement files inline with any changes to your
-package. The inital files contain the bare minimum to get you started.
+In programming we might work on several projects concurrently, each project depending on different packages of different versions. For example, our `project1` might require version `2.0.1` of `packageA`, and `project2` might require version `3.2.2` of that same `packageA`. If these versions are different enough, our `project1` and `project2` may not run with the wrong version of `packageA` installed. We use virtual environments so that all our projects can have separate, isolated environments with all their required dependencies inside, so working on one project does not disrupt our workflow in another.
 
-## Running the pipeline (Python only)
+Documentation on virtual environments in Python is available [here](https://docs.python.org/3/tutorial/venv.html)
 
-The entry point for the pipeline is stored within the package and called `run_pipeline.py`.
-To run the pipeline, run the following code in the terminal (whilst in the root directory of the
-project).
+Running the `setup_project.bat` file will create and environment for you called `{{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env` using the `environment.yml` file in the root directory of this project.
 
-```shell
-python src/{{ cookiecutter.repo_name.lower().replace(' ', '_').replace('-', '_') }}/run_pipeline.py
-```
+This environment contains all the packages needed to run the example code and the pre-commit-hooks
 
-Alternatively, most Python IDE's allow you to run the code directly from the IDE using a `run` button.
+* To activate this virtual environment, run `conda`: `conda activate {{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env`.
+* When you are finished with this project, run: `conda deactivate`.
 
-## Required secrets and credentials
+## Required secrets and credentials PLACEHOLDER
 
 To run this project, [you need a `.secrets` file with secrets/credentials as
 environmental variables][docs-loading-environment-variables-secrets]. The
@@ -61,17 +49,46 @@ secrets/credentials should have the following environment variable name(s):
 Once you've added, [load these environment variables using
 `.env`][docs-loading-environment-variables].
 
-## Virtual environments
 
-In programming we might work on several projects concurrently, each project depending on different packages of different versions. For example, our `project1` might require version `2.0.1` of `packageA`, and `project2` might require version `3.2.2` of that same `packageA`. If these versions are different enough, our `project1` and `project2` may not run with the wrong version of `packageA` installed. We use virtual environments so that all our projects can have separate, isolated environments with all their required dependencies inside, so working on one project does not disrupt our workflow in another.
+## Pre-commit hooks
 
-### Python
+Git-hooks are scripts that can identify simple issues in code. Pre-commit hooks are run on every commit to ensure issues are identified before code is pushed to a repository hosting platform such as GitHub. If you have run `setup_project.bat` then pre-commit hooks will run automatically. 
 
-* Documentation on virtual environments in Python is available [here](https://docs.python.org/3/tutorial/venv.html)
-* With the repository as the current directory in console, run `conda env create -f environment.yml`. This will create a virtual environment called `{{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env`.
-* [*Optional*] If an environment called `{{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env` already exists on your device, the above step will fail. Run `conda remove --name {{cookiecutter.project_name}}-env --all`, first ensuring you are ***NOT*** using the `{{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env` environment. Then reattempt the previous step.
-* To activate this virtual environment, run `conda`: `conda activate {{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env`.
-* When you are finished with this project, run: `conda deactivate`.
+[*Note*] if you try to make a commit in an environment that does not have access to the pre-commit hook packages the hooks will fail. Activate your environment with `conda`: `conda activate {{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env` and commit your changes again. 
+
+The pre-commit hooks installed with this project include:
+* [*nbstripout*](https://pypi.org/project/nbstripout/) - Clears outputs of Jupyter notebooks - this hook will change your code
+* [*isort*](https://pypi.org/project/isort/) - sorts python imports - this hook will change your code
+* [*black*](https://pypi.org/project/black/) - formats code to be inline with the [PEP8 style guide for pyhton code](https://peps.python.org/pep-0008/)
+* [*flake8*](https://pypi.org/project/flake8/) - 'lints' code, checking for formatting and syntax errors. this hook will *not* change your code for you, but will provide instructions on how to change it
+* [*nbqa*](https://pypi.org/project/nbqa/) - applys black and isort to jupyter notebooks. 
+* [*detect-secrets*](https://pypi.org/project/detect-secrets/) - *attempts* to identify secret within code. This should be considered as a complement to manually checking for secrets, not a replacemet. This hook will not change your code - but will alert you to the presence of secrets.
+
+To exclude a false positive, add a `pragma` comment such as:
+
+```python
+secret = "Password123"  # pragma: allowlist secret
+```
+
+* [*bandit*](https://pypi.org/project/detect-secrets/) - *attempts* to identify security risks within code. This hook will not change your code - but will provide a report of possible security risks.
+
+To exclude a false postive, add a `nosec` comment sch as:
+```python
+some_security_risk() #nosec
+```
+
+
+## Running the pipeline 
+
+The entry point for the example pipeline is stored in the root directory and called `main.py`. This scripts imports and runs the pipline located within the src folder. 
+To run the pipeline, run the following code in the terminal (whilst in the root directory of the
+project).
+
+```shell
+python main.py
+```
+
+Alternatively, most Python IDE's allow you to run the code directly from the IDE using a `run` button.
 
 
 ## Documentation
@@ -79,12 +96,6 @@ In programming we might work on several projects concurrently, each project depe
 All functions contained in `.py` scripts in the `src` folder should have docstrings explaining what they do, what parameters are passed to the function, what errors the function can raise, and what the function outputs. The [`numpydoc` style](https://numpydoc.readthedocs.io/en/latest/example.html) of formatting docstrings is recommended. Scripts as a whole can contain their own docstrings, in much the same way as a function - simply contain a description of the module inside triple quotation marks `"""` at the top of the script. Examples of such documentation are contained in the `src` modules and submodules.
 
 Having documentation in this way is crucial to meet the minimum requirments of a Reproducible Analytical Pipeline.
-
-### Generating documentation
-
-Once docstrings for functions and modules are put together, we can quickly and easily generate documentation using the [`sphinx`](https://www.sphinx-doc.org/en/master/) package, which is contained in the `{{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env` conda environment in `environment.yml`. This is quick and easy to do, producing documentation in HTML form in the style of [Read the Docs](https://about.readthedocs.com/?ref=readthedocs.com). This presents all modules and functions in an easy to navigate environment with all relevant information, including source code, readily available.
-
-Instructions for running `sphinx` are [here](docs/README.md).
 
 
 ## Code of Conduct
