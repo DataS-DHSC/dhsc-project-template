@@ -860,22 +860,28 @@ data/*
 !data/README.md
 
 # Ignore the contents of the `outputs` folder
-output/*
+##output/*
 
 # Ignore the contents of the `input` folder
-input/*
-
+#!input/**/
+input/data/*
+input/configs/*
+!input/configs/.example_config
 # Ignore the contents of the `data` sub-folders, except for their `.gitkeep` files; adapted from
 # https://stackoverflow.com/a/20652768
-!data/**/
-data/external/*
-data/raw/*
-data/interim/*
-data/processed/*
-!data/external/.gitkeep
-!data/raw/.gitkeep
-!data/interim/.gitkeep
-!data/processed/.gitkeep
+
+!output/**/
+output/*
+
+# !data/**/
+# data/external/*
+# data/raw/*
+# data/interim/*
+# data/processed/*
+# !data/external/.gitkeep
+# !data/raw/.gitkeep
+# !data/interim/.gitkeep
+# !data/processed/.gitkeep
 
 # Ignore the `docs/reference/api` folder
 docs/reference/api/*
