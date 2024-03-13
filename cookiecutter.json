@@ -1,5 +1,4 @@
-{ "organisation_name": "Your public sector organisation name, for example Department of Health and Social Care",
-  "repository_hosting_platform": ["GitHub", "GitLab"],
+{ "repository_hosting_platform": ["GitHub", "GitLab"],
   "organisation_handle": "Your GitHub/GitLab organisation name, for example DataS-DHSC",
   "contact_email": "organisation@email.address",
   "project_name": "Your new project name",
