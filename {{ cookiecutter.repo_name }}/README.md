@@ -18,8 +18,8 @@ In order to setup your project, navigate to the root directory and run
 bash setup_project.bat
 ```
 This will perform a number of steps for you, including:
-* Setting up a [virtual environment] (#virtual-environments)
-* Installing pre-commit hooks (#pre-commit-hooks)
+* Setting up a [virtual environment](#virtual-environments)
+* Installing [pre-commit hooks](#pre-commit-hooks)
 * Initalising a git repository 
 
 ## Virtual environments
@@ -38,8 +38,8 @@ This environment contains all the packages needed to run the example code and th
 ## Required secrets and credentials PLACEHOLDER
 
 To run this project, [you need a `.env` file with secrets/credentials as
-environmental variables](docs/user_guide/loading_environment_variables). The
-secrets/credentials should have the following environment variable name(s):
+environmental variables](docs/user_guide/loading_environment_variables.md). The
+secrets/credentials should have the following environment variable name(s):git
 
 | Secret/credential | Environment variable name | Description                                |
 |-------------------|---------------------------|--------------------------------------------|
