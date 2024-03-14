@@ -890,8 +890,8 @@ MigrationBackup/
 # Ignore the `docs/reference/api` folder
 docs/reference/api/*
 
-# Ignore the `.secrets` file
-.secrets
+# Ignore the `.env` file
+.env
 
 # Ignore R artifacts
 *.Renviron
