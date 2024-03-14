@@ -101,7 +101,7 @@ contributing guidelines](docs/CONTRIBUTING.md).
 
 - a `.env` file with the [required secrets and
   credentials](#required-secrets-and-credentials)
-- [load environment variables](docs/user_guide/loading_environment_variables.md) from `.env`
+- [able to load environment variables](docs/user_guide/loading_environment_variables.md) from `.env`
 
 ## Acknowledgements
 

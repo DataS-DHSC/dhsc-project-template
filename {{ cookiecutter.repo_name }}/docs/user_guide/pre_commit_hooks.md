@@ -46,7 +46,7 @@ If you have run `setup_project.bat` - then pre-commit will be installed into you
 
 If you are setting up your own environment, you will need to install and configure it yourself
 
-- [install](https://pre-commit.com/#install) the `pre-commit` package into your environment
+- [install][pre-commit-install] the `pre-commit` package into your environment
 
 - Install each of packages listed above under 'The pre-commit hooks installed with this project include'
 
@@ -168,4 +168,6 @@ outputs.
 [black]: https://github.com/psf/black
 [nbqa]: https://github.com/nbQA-dev/nbQA
 [flake8]: https://github.com/PyCQA/flake8
+[bandit]: https://github.com/PyCQA/bandit
 [pre-commit]: https://pre-commit.com/
+[pre-commit-install]: https://pre-commit.com/#install
