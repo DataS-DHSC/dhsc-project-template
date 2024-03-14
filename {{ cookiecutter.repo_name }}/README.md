@@ -47,7 +47,7 @@ secrets/credentials should have the following environment variable name(s):git
 | Credential 1      | `CREDENTIAL_VARIABLE_1`   | Plain English description of Credential 1. |
 
 Once you've added, [load these environment variables using
-`.env`][docs-loading-environment-variables].
+`.env`](docs/user_guide/loading_environment_variables.md).
 
 
 ## Pre-commit hooks
@@ -56,7 +56,7 @@ Git-hooks are scripts that can identify simple issues in code. Pre-commit hooks 
 
 [*Note*] if you try to make a commit in an environment that does not have access to the pre-commit hook packages the hooks will fail. Activate your environment with `conda`: `conda activate {{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env` and commit your changes again. 
 
-For more information see the [pre-commit hooks section in the user guide][link to guide)
+For more information see the [pre-commit hooks section in the user guide](docs/user_guide/pre_commit_hooks.md)
 
 ## Running the pipeline 
 
@@ -73,14 +73,14 @@ Alternatively, most Python IDE's allow you to run the code directly from the IDE
 
 ## Documentation
 
-All functions contained in `.py` scripts in the `src` folder should have docstrings explaining what they do, what parameters are passed to the function, what errors the function can raise, and what the function outputs. The [`numpydoc` style](https://numpydoc.readthedocs.io/en/latest/example.html) of formatting docstrings is recommended. Scripts as a whole can contain their own docstrings, in much the same way as a function - simply contain a description of the module inside triple quotation marks `"""` at the top of the script. Examples of such documentation are contained in the `src` modules and submodules.
+All functions contained in `.py` scripts in the `src` folder should have docstrings explaining what they do, what parameters are passed to the function, what errors the function can raise, and what the function outputs. The [`numpydoc` style][numpydoc-style] of formatting docstrings is recommended. Scripts as a whole can contain their own docstrings, in much the same way as a function - simply contain a description of the module inside triple quotation marks `"""` at the top of the script. Examples of such documentation are contained in the `src` modules and submodules.
 
 Having documentation in this way is crucial to meet the minimum requirments of a Reproducible Analytical Pipeline.
 
 
 ## Code of Conduct
 
-Please note that the {{cookiecutter.repo_name}} project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
+Please note that the {{cookiecutter.repo_name}} project is released with a [Contributor Code of Conduct][contributing-code] . By contributing to this project, you agree to abide by its terms.
 
 ## License
 
@@ -91,41 +91,25 @@ Crown copyright and available under the terms of the Open Government 3.0 licence
 ## Contributing
 
 [If you want to help us build, and improve `{{ cookiecutter.repo_name }}`, view our
-contributing guidelines][contributing].
+contributing guidelines](docs/CONTRIBUTING.md).
 
 ### Requirements
 
-[```Contributors have some additional requirements!```][contributing]
+[```Contributors have some additional requirements!```](docs/CONTRIBUTING.md)
 
 - Python 3.6.1+ installed
 
 - a `.env` file with the [required secrets and
   credentials](#required-secrets-and-credentials)
-- [load environment variables][docs-loading-environment-variables] from `.env`
+- [load environment variables](docs/user_guide/loading_environment_variables.md) from `.env`
 
 ## Acknowledgements
 
 [This project structure is based on the `govcookiecutter` template
 project][govcookiecutter].
 
-[contributing]: https://github.com/best-practice-and-impact/govcookiecutter/blob/main/%7B%7B%20cookiecutter.repo_name%20%7D%7D/docs/contributor_guide/CONTRIBUTING.md
+[contributing-code]: https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html 
+[numpydoc-style]: https://numpydoc.readthedocs.io/en/latest/example.html
 [govcookiecutter]: https://github.com/best-practice-and-impact/govcookiecutter
-[docs-loading-environment-variables]: https://github.com/best-practice-and-impact/govcookiecutter/blob/main/%7B%7B%20cookiecutter.repo_name%20%7D%7D/docs/user_guide/loading_environment_variables.md
-[docs-loading-environment-variables-secrets]: https://github.com/best-practice-and-impact/govcookiecutter/blob/main/%7B%7B%20cookiecutter.repo_name%20%7D%7D/docs/user_guide/loading_environment_variables.md#storing-secrets-and-credentials
 [python-venv-tutorial]: https://docs.python.org/3/tutorial/venv.html
 
-## Project Structure 
-
-
-├───.github
-│   └───workflows
-└───placeholder_repo
-    ├───data
-    │   ├───external
-    │   ├───interim
-    │   ├───processed
-    │   └───raw
-    ├───outputs
-    └───src
-        └───placeholder_module
-            └───example_modules

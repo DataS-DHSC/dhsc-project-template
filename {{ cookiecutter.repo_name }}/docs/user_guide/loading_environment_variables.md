@@ -7,8 +7,8 @@ variables.
 ## Using `python-dotenv`
 
 To load the environment variables, first make sure you have
-python-dotenv install, and [make sure you have a `.secrets` file to store
-secrets and credentials](#storing-secrets-and-credentials). Then to load in the
+python-dotenv install, and [make sure you have a `.env` file to store
+secrets and credentials](../../.env). Then to load in the
 environment variables into a python script see instructions in `.env` file.
 
 
@@ -46,4 +46,3 @@ EXAMPLE_VARIABLE = os.getenv("EXAMPLE_VARIABLE")
 ```
 
 [python-dotenv]: https://saurabh-kumar.com/python-dotenv/
-[env]: https://github.com/best-practice-and-impact/govcookiecutter/%7B%7B%20cookiecutter.repo_name%20%7D%7D/.env
