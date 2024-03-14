@@ -18,15 +18,15 @@ In order to setup your project, navigate to the root directory and run
 bash setup_project.bat
 ```
 This will perform a number of steps for you, including:
-* Setting up a [virtual environment] #virtual-environments
-* Installing pre-commit hooks #pre-commit-hooks
+* Setting up a [virtual environment] (#virtual-environments)
+* Installing pre-commit hooks (#pre-commit-hooks)
 * Initalising a git repository 
 
 ## Virtual environments
 
 In programming we might work on several projects concurrently, each project depending on different packages of different versions. For example, our `project1` might require version `2.0.1` of `packageA`, and `project2` might require version `3.2.2` of that same `packageA`. If these versions are different enough, our `project1` and `project2` may not run with the wrong version of `packageA` installed. We use virtual environments so that all our projects can have separate, isolated environments with all their required dependencies inside, so working on one project does not disrupt our workflow in another.
 
-Documentation on virtual environments in Python is available [here](https://docs.python.org/3/tutorial/venv.html)
+Documentation on virtual environments in Python is available [here][python-venv-tutorial]
 
 Running the `setup_project.bat` file will create and environment for you called `{{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env` using the `environment.yml` file in the root directory of this project.
 
@@ -38,7 +38,7 @@ This environment contains all the packages needed to run the example code and th
 ## Required secrets and credentials PLACEHOLDER
 
 To run this project, [you need a `.env` file with secrets/credentials as
-environmental variables][docs-loading-environment-variables-secrets]. The
+environmental variables](docs/user_guide/loading_environment_variables). The
 secrets/credentials should have the following environment variable name(s):
 
 | Secret/credential | Environment variable name | Description                                |
@@ -112,8 +112,7 @@ project][govcookiecutter].
 [govcookiecutter]: https://github.com/best-practice-and-impact/govcookiecutter
 [docs-loading-environment-variables]: https://github.com/best-practice-and-impact/govcookiecutter/blob/main/%7B%7B%20cookiecutter.repo_name%20%7D%7D/docs/user_guide/loading_environment_variables.md
 [docs-loading-environment-variables-secrets]: https://github.com/best-practice-and-impact/govcookiecutter/blob/main/%7B%7B%20cookiecutter.repo_name%20%7D%7D/docs/user_guide/loading_environment_variables.md#storing-secrets-and-credentials
-
-
+[python-venv-tutorial]: https://docs.python.org/3/tutorial/venv.html
 
 ## Project Structure 
 
