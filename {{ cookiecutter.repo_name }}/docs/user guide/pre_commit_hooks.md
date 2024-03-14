@@ -19,6 +19,10 @@ We have configured `pre-commit` to run automatically on every commit. By running
 each commit, we ensure that `pre-commit` will be able to detect all contraventions and
 keep our repository in a healthy state.
 
+[*Note*] if you try to make a commit in an environment that does not have access to the pre-commit hook packages the hooks will fail.
+ Activate your environment with `conda`: `conda activate {{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env` and commit your changes again.
+
+
 ```{note} Pre-commit hooks and Google Colab
 No pre-commit hooks will be run on Google Colab notebooks pushed directly to GitHub.
 For security reasons, it is recommended that you manually download your notebook, and
@@ -28,21 +32,23 @@ commit up locally to ensure pre-commit hooks are run on your changes.
 
 The pre-commit hooks installed with this project include:
 
-* [*nbstripout*](https://pypi.org/project/nbstripout/) - Clears outputs of Jupyter notebooks - this hook will change your code
-* [*isort*](https://pypi.org/project/isort/) - sorts python imports - this hook will change your code
-* [*black*](https://pypi.org/project/black/) - formats code to be inline with the [PEP8 style guide for pyhton code](https://peps.python.org/pep-0008/) - this hook will change your code
-* [*flake8*](https://pypi.org/project/flake8/) - 'lints' code, checking for formatting and syntax errors. this hook will *not* change your code for you, but will provide instructions on how to change it
-* [*nbqa*](https://pypi.org/project/nbqa/) - applys black and isort to jupyter notebooks. 
-* [*detect-secrets*](https://pypi.org/project/detect-secrets/) - *attempts* to identify secret within code. This should be considered as a complement to manually checking for secrets, not a replacemet. This hook will not change your code - but will alert you to the presence of  possible secrets.
-* [*bandit*](https://pypi.org/project/bandit/) -  *attempts* to identify security risks within code. This hook will not change your code - but will alert you to the presence of possibel security risks.
+* [*nbstripout*][nbstripout] - Clears outputs of Jupyter notebooks - this hook will change your code
+* [*isort*][isort] - sorts python imports - this hook will change your code
+* [*black*][black] - formats code to be inline with the [PEP8 style guide for pyhton code](https://peps.python.org/pep-0008/) - this hook will change your code
+* [*flake8*][flake8] - 'lints' code, checking for formatting and syntax errors. this hook will *not* change your code for you, but will provide instructions on how to change it
+* [*nbqa*][nbqa] - applys black and isort to jupyter notebooks. 
+* [*detect-secrets*][detect-secrets] - *attempts* to identify secret within code. This should be considered as a complement to manually checking for secrets, not a replacemet. This hook will not change your code - but will alert you to the presence of  possible secrets.
+* [*bandit*][bandit] -  *attempts* to identify security risks within code. This hook will not change your code - but will alert you to the presence of possible security risks.
 
 ## Installation
 
-If you have run `setup_project.bat` - then precommit will be installed into your virtual environment and configured for you.
+If you have run `setup_project.bat` - then pre-commit will be installed into your virtual environment and configured for you.
 
 If you are setting up your own environment, you will need to install and configure it yourself
 
 - [install](https://pre-commit.com/#install) the `pre-commit` package into your environment
+
+- Install each of packages listed above under 'The pre-commit hooks installed with this project include'
 
 - run `pre-commit install` in your terminal to set up `pre-commit` to run when code is
   committed.
@@ -106,7 +112,20 @@ the secret and re-commit; there is no need to add any `pragma` comments.
 If your commit contains a mixture of false positives and actual secrets, remove the
 actual secrets first before adding `pragma` comments to the false positives.
 
+## Using Bandit
 
+Bandit is a security linter for Python.
+ It helps identify security vulnerabilities and issues in your Python code before committing changes.
+
+### Using #nosec
+In some cases, you may want to suppress Bandit warnings for specific lines of code. 
+You can do this by adding #nosec at the end of the line where the issue occurs. For example:
+
+python
+```
+# Example of insecure code
+os.system("rm -rf /")  #nosec
+```
 ## Keeping specific Jupyter notebook outputs
 
 It may be necessary or useful to keep certain output cells of a Jupyter notebook, for
@@ -145,4 +164,8 @@ outputs.
 [detect-secrets]: https://github.com/Yelp/detect-secrets
 [detect-secrets-plugins]: https://github.com/Yelp/detect-secrets#currently-supported-plugins
 [nbstripout]: https://github.com/kynan/nbstripout
+[isort]: https://github.com/pycqa/isort/
+[black]: https://github.com/psf/black
+[nbqa]: https://github.com/nbQA-dev/nbQA
+[flake8]: https://github.com/PyCQA/flake8
 [pre-commit]: https://pre-commit.com/

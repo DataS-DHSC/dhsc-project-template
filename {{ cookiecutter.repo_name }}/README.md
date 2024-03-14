@@ -37,7 +37,7 @@ This environment contains all the packages needed to run the example code and th
 
 ## Required secrets and credentials PLACEHOLDER
 
-To run this project, [you need a `.secrets` file with secrets/credentials as
+To run this project, [you need a `.env` file with secrets/credentials as
 environmental variables][docs-loading-environment-variables-secrets]. The
 secrets/credentials should have the following environment variable name(s):
 
@@ -56,27 +56,7 @@ Git-hooks are scripts that can identify simple issues in code. Pre-commit hooks 
 
 [*Note*] if you try to make a commit in an environment that does not have access to the pre-commit hook packages the hooks will fail. Activate your environment with `conda`: `conda activate {{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env` and commit your changes again. 
 
-The pre-commit hooks installed with this project include:
-* [*nbstripout*](https://pypi.org/project/nbstripout/) - Clears outputs of Jupyter notebooks - this hook will change your code
-* [*isort*](https://pypi.org/project/isort/) - sorts python imports - this hook will change your code
-* [*black*](https://pypi.org/project/black/) - formats code to be inline with the [PEP8 style guide for pyhton code](https://peps.python.org/pep-0008/)
-* [*flake8*](https://pypi.org/project/flake8/) - 'lints' code, checking for formatting and syntax errors. this hook will *not* change your code for you, but will provide instructions on how to change it
-* [*nbqa*](https://pypi.org/project/nbqa/) - applys black and isort to jupyter notebooks. 
-* [*detect-secrets*](https://pypi.org/project/detect-secrets/) - *attempts* to identify secret within code. This should be considered as a complement to manually checking for secrets, not a replacemet. This hook will not change your code - but will alert you to the presence of secrets.
-
-To exclude a false positive, add a `pragma` comment such as:
-
-```python
-secret = "Password123"  # pragma: allowlist secret
-```
-
-* [*bandit*](https://pypi.org/project/detect-secrets/) - *attempts* to identify security risks within code. This hook will not change your code - but will provide a report of possible security risks.
-
-To exclude a false postive, add a `nosec` comment sch as:
-```python
-some_security_risk() #nosec
-```
-
+For more information see the [pre-commit hooks section in the user guide][link to guide)
 
 ## Running the pipeline 
 
@@ -119,20 +99,9 @@ contributing guidelines][contributing].
 
 - Python 3.6.1+ installed
 
-- a `.secrets` file with the [required secrets and
+- a `.env` file with the [required secrets and
   credentials](#required-secrets-and-credentials)
 - [load environment variables][docs-loading-environment-variables] from `.env`
-
-To install the contributing requirements, open your terminal and enter:
-```shell
-python -m pip install -U pip setuptools
-pip install -e .[dev]
-pre-commit install
-```
-or use the `make` command:
-```shell
-make install_dev
-```
 
 ## Acknowledgements
 
