@@ -163,6 +163,7 @@ outputs.
 
 [detect-secrets]: https://github.com/Yelp/detect-secrets
 [detect-secrets-plugins]: https://github.com/Yelp/detect-secrets#currently-supported-plugins
+[detect-secrets-keyword-detector]: https://github.com/Yelp/detect-secrets/blob/c59553fab7f657320cc998887e6c23a0c0794a2b/detect_secrets/plugins/keyword.py#L74
 [nbstripout]: https://github.com/kynan/nbstripout
 [isort]: https://github.com/pycqa/isort/
 [black]: https://github.com/psf/black
