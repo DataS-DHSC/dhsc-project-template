@@ -1,12 +1,11 @@
 # general
 from pathlib import Path
-
+import logging
 # project specfic
 import seaborn as sns
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 import pandas as pd
-
 # custom
 from src.example_module import util
 
@@ -33,6 +32,7 @@ def plot_nims_monthly(
         config (dict): configuration file
         output_path (Path): dir to save plot in -
     """
+    logging.info('Plotting nims monthly data')
 
     fig, ax = plt.subplots()
     nims_plot = sns.lineplot(
@@ -65,6 +65,8 @@ def plot_summary(summary_df: pd.DataFrame, config: dict, output_path: Path):
         config (dict): configuration file
         output_path (Path): dir to save plot in
     """
+    logging.info('Plotting attendence data')
+
     for col in ["attended", "did_not_attend", "unknown"]:
         util.convert_to_proportion(summary_df, col, "total_count_of_appointments")
 

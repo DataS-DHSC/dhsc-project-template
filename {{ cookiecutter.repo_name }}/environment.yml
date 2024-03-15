@@ -3,7 +3,6 @@ channels:
   - conda-forge
 dependencies:
   - python= {{ cookiecutter.python_version }}
-dependencies:
   - bzip2=1.0.8=hcfcfb64_5
   - ca-certificates=2024.2.2=h56e8100_0
   - libexpat=2.6.1=h63175ca_0
@@ -40,6 +39,7 @@ dependencies:
       - decorator==5.1.1
       - detect-secrets==1.4.0
       - distlib==0.3.8
+      - et-xmlfile==1.1.0
       - executing==2.0.1
       - fastjsonschema==2.19.1
       - filelock==3.13.1
@@ -68,6 +68,7 @@ dependencies:
       - nest-asyncio==1.6.0
       - nodeenv==1.8.0
       - numpy==1.26.4
+      - openpyxl==3.1.2
       - packaging==24.0
       - pandas==2.2.1
       - parso==0.8.3

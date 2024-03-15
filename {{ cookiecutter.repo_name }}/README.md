@@ -73,7 +73,7 @@ Alternatively, most Python IDE's allow you to run the code directly from the IDE
 
 ## Documentation
 
-All functions contained in `.py` scripts in the `src` folder should have docstrings explaining what they do, what parameters are passed to the function, what errors the function can raise, and what the function outputs. The [`numpydoc` style][numpydoc-style] of formatting docstrings is recommended. Scripts as a whole can contain their own docstrings, in much the same way as a function - simply contain a description of the module inside triple quotation marks `"""` at the top of the script. Examples of such documentation are contained in the `src` modules and submodules.
+All functions contained in `.py` scripts in the `src` folder should have docstrings explaining what they do, what parameters are passed to the function, what errors the function can raise, and what the function outputs. The [Google style][google-docstrings] of formatting docstrings is recommended. Scripts as a whole can contain their own docstrings, in much the same way as a function - simply contain a description of the module inside triple quotation marks `"""` at the top of the script. Examples of such documentation are contained in the `src` modules and submodules.
 
 Having documentation in this way is crucial to meet the minimum requirments of a Reproducible Analytical Pipeline.
 
@@ -109,7 +109,7 @@ contributing guidelines](docs/CONTRIBUTING.md).
 project][govcookiecutter].
 
 [contributing-code]: https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html 
-[numpydoc-style]: https://numpydoc.readthedocs.io/en/latest/example.html
+[google-docstrings]: https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings
 [govcookiecutter]: https://github.com/best-practice-and-impact/govcookiecutter
 [python-venv-tutorial]: https://docs.python.org/3/tutorial/venv.html
 
