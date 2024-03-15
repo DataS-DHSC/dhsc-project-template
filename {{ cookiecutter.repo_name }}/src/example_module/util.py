@@ -1,5 +1,4 @@
 import re
-from pathlib import Path
 
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
@@ -91,7 +90,7 @@ def set_labels(ax: plt.Axes, title: str, fontsize: int) -> plt.Axes:
     # if legend exists then also update
     if ax.get_legend() is not None:
         handles, labels = ax.get_legend_handles_labels()
-        labels = [l.replace("_", " ").capitalize() for l in labels]
+        labels = [label.replace("_", " ").capitalize() for label in labels]
         ax.legend(
             title=ax.get_legend().get_title().get_text().replace("_", " ").capitalize(),
             handles=handles,
