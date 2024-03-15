@@ -18,7 +18,7 @@ def million_format(x: {int, float}, pos: float) -> str:
     Returns:
         str: formatted tick value
     """
-    s = f"{x/1000000:,g}m"
+    s = f"{x / 1000000:,g}m"
     return s
 
 

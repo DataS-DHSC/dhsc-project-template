@@ -33,7 +33,7 @@ def run_pipeline():
     visualise.make_plots(summary_df, nims_monthly_df, example_config)
 
     with open(
-        INPUT_DIR / "configs" / f'config_{example_config["date_stamp"] }.yml', "w"
+        INPUT_DIR / "configs" / f'config_{example_config["date_stamp"]}.yml', "w"
     ) as outfile:
         yaml.dump(example_config, outfile)  
     

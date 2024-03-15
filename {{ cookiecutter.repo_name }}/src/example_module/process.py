@@ -38,7 +38,8 @@ def load_summary_data(data_path: Path) -> pd.DataFrame:
     """
     Loads summary dataset and cleans
 
-    Renames columns, drops unnecessary rows and cols and explictly casts column data types
+    Renames columns, drops unnecessary rows and cols,
+    and explictly casts column data types
 
     Args:
         data_path (Path): path to data directory

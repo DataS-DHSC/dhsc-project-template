@@ -11,10 +11,6 @@ If you are developing software or packages - see our dhsc_pacakge_template,
 which contains additionaly functionality such as unit testing and sphix documentation,
 and  also acts as an installable template.
 
-It also provides an Agile, centralised, and lightweight analytical quality assurance
-(AQA) process. Pull or merge request templates are used to nudge users to complete this
-process. [This helps meet HM Government best practice on producing quality analysis, as
-defined in the Aqua Book][aqua-book].
 
 ## Getting started
 
@@ -40,7 +36,7 @@ blank, and press enter.
 Once you've answered all the prompts, your project will be created. Then:
 
 
-1. Navigate to the root directory of your new projce in a *bash terminal* 
+1. Navigate to the root directory of your new project in a **bash terminal**
 
 2.  In your terminal type
      ```shell
@@ -123,7 +119,7 @@ project][govcookiecutter].
 
 
 [aqua-book]: https://www.gov.uk/government/publications/the-aqua-book-guidance-on-producing-quality-analysis-for-government
-[docs-pre-commit]: https://github.com/best-practice-and-impact/govcookiecutter/blob/main/%7B%7B%20cookiecutter.repo_name%20%7D%7D/docs/contributor_guide/writing_sphinx_documentation.md
+[docs-pre-commit]: https://github.com/DataS-DHSC/dhsc-project-template/blob/docs-and-setup/%7B%7B%20cookiecutter.repo_name%20%7D%7D/docs/user_guide/pre_commit_hooks.md
 [homebrew]: https://brew.sh/
 [issue-windows-os]: https://github.com/best-practice-and-impact/govcookiecutter/issues/20
 [pluralsight]: https://www.pluralsight.com/tech-blog/managing-python-environments/

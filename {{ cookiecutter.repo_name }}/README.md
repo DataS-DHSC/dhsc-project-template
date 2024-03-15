@@ -12,7 +12,7 @@ located.
 To start using this project, [first make sure your system meets its
 requirements](#requirements).
 
-In order to setup your project, in a *bash terminal*,
+In order to setup your project, in a **bash terminal**,
 navigate to the root directory and run 
 
 ```shell
