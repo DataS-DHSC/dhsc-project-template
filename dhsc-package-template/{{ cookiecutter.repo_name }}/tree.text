@@ -1,0 +1,42 @@
+Folder PATH listing for volume Windows
+Volume serial number is 1081-B4EF
+
+my-repo-name
+|   .env
+|   .gitignore
+|   CODE_OF_CONDUCT.md
+|   CONTRIBUTING.md
+|   DESCRIPTION
+|   environment.yml
+|   LICENSE
+|   main.py
+|   README.md
+|   
++---.github
+|   \---workflows
+|
++---data
+|   +---external
+|   +---interim
+|   +---processed
+|   \---raw
+|           
++---outputs
+|       
++---src
+    |   __init__.py
+    |   
+    \---my_package_name
+        |   example_config.yml
+        |   run_pipeline.py
+        |   __init__.py
+        |   
+        \---example_modules
+                download.py
+                process.py
+               test.py
+               util.py
+                visualise.py
+                __init__.py
+               
+

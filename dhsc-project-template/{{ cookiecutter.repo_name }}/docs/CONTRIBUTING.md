@@ -8,6 +8,27 @@ we'd be happy to help!
 
 [Please read `CODE_OF_CONDUCT.md` before contributing](CODE_OF_CONDUCT.md).
 
+## Getting started
+
+To start contributing, open your terminal, navigate to the root directory and run 
+
+```shell
+bash setup_project.bat
+```
+This will perform a number of steps for you, including:
+* Setting up a virtual environment 
+* Installing pre-commit hooks 
+* Initalising a git repository if one doesn't already exist
+
+
+The pre-commit hooks are a security feature to ensure, for example, no secrets[^1],
+or Jupyter notebook outputs are accidentally committed into the
+repository. [For more information on pre-commit hooks see our
+documentation](user_guide/pre_commit_hooks.md)
+
+[^1]: [Only secrets of specific patterns are detected by the pre-commit
+      hooks](user_guide/pre_commit_hooks.md#definition-of-a-secret-according-to-detect-secrets).
+
 
 ### Git and GitHub
 

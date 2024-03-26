@@ -1,0 +1,72 @@
+Folder PATH listing for volume Windows
+Volume serial number is 1081-B4EF
+C:.
+|   .env
+|   .gitignore
+|   CODE_OF_CONDUCT.md
+|   config_20240312-1106.yml
+|   conftest.py
+|   CONTRIBUTING.md
+|   DESCRIPTION
+|   environment.yml
+|   LICENSE
+|   main.py
+|   output.doc
+|   README.md
+|   
++---.github
+|   \---workflows
++---data
+|   +---external
+|   +---interim
+|   +---processed
+|   \---raw
+|           nims.csv
+|           summary.xlsx
+|           
++---outputs
+|       config_20240312-1107.yml
+|       nims_20240312-1101.svg
+|       nims_20240312-1103.svg
+|       nims_20240312-1106.svg
+|       nims_20240312-1107.svg
+|       summary_20240312-1103.svg
+|       summary_20240312-1106.svg
+|       summary_20240312-1107.svg
+|       
++---src
+|   |   __init__.py
+|   |   
+|   +---placeholder_module
+|   |   |   example_config.yml
+|   |   |   run_pipeline.py
+|   |   |   __init__.py
+|   |   |   
+|   |   +---example_modules
+|   |   |   |   download.py
+|   |   |   |   process.py
+|   |   |   |   test.py
+|   |   |   |   util.py
+|   |   |   |   visualise.py
+|   |   |   |   __init__.py
+|   |   |   |   
+|   |   |   \---__pycache__
+|   |   |           download.cpython-312.pyc
+|   |   |           process.cpython-312.pyc
+|   |   |           util.cpython-312.pyc
+|   |   |           visualise.cpython-312.pyc
+|   |   |           __init__.cpython-312.pyc
+|   |   |           
+|   |   \---__pycache__
+|   |           run_pipeline.cpython-310.pyc
+|   |           run_pipeline.cpython-312.pyc
+|   |           __init__.cpython-310.pyc
+|   |           __init__.cpython-312.pyc
+|   |           
+|   \---__pycache__
+|           __init__.cpython-312.pyc
+|           
+\---__pycache__
+        main.cpython-310.pyc
+        main.cpython-312.pyc
+        
