@@ -866,7 +866,7 @@ MigrationBackup/
 #!input/**/
 /input/data/*
 /input/configs/*
-/input/*
+#/input/*
 !input/configs/.gitkeep
 !input/data/.gitkeep
 

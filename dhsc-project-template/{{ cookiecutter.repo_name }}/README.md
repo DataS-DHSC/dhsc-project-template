@@ -16,7 +16,7 @@ In order to setup your project, in a **bash terminal**,
 navigate to the root directory and run 
 
 ```shell
-bash setup_project.bat
+bash run_setup.bat
 ```
 This will perform a number of steps for you, including:
 * Setting up a [virtual environment](#virtual-environments)
