@@ -864,7 +864,11 @@ MigrationBackup/
 
 # Ignore the contents of the `input` folder
 #!input/**/
-dhsc-project-template/{{ cookiecutter.repo_name }}/.gitignore
+# /input/data/*
+# /input/configs/*
+# #/input/*
+# !input/configs/.gitkeep
+# !input/data/.gitkeep
 
 
 # Ignore the contents of the `data` sub-folders, except for their `.gitkeep` files; adapted from
