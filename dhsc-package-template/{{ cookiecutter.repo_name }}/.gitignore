@@ -864,11 +864,11 @@ MigrationBackup/
 
 # Ignore the contents of the `input` folder
 #!input/**/
-# /input/data/*
-# /input/configs/*
-# #/input/*
-# !input/configs/.gitkeep
-# !input/data/.gitkeep
+/input/data/*
+/input/configs/*
+#/input/*
+!input/configs/.gitkeep
+!input/data/.gitkeep
 
 
 # Ignore the contents of the `data` sub-folders, except for their `.gitkeep` files; adapted from
