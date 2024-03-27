@@ -1,15 +1,25 @@
 # `dhsc_project_template`
 
-A cookiecutter template for analytical, Python-based projects within
+A cookiecutter template Python-based projects within
 the DHSC.
 
 This template helps to set up standardised project structures, and [includes security
 features using pre-commit hooks][docs-pre-commit]. 
 
-This cookiecutter template is designed for analytical projects in python. 
-If you are developing software or packages - see our dhsc_pacakge_template,
-which contains additionaly functionality such as unit testing and sphix documentation,
-and  also acts as an installable template.
+This cookiecutter offers two differnt templates.
+
+1) The Project template.
+This is designed for analytical projects in python. 
+This template includes automated project setup, security features and example python code
+We recommend you use this template if XX.
+
+2) The Package template.
+This is designed for developing packages in python.
+This template includes everything in the package template, but also contains
+automatic documention and unit testing.
+We recommend you use this template if XX.
+
+If you are unsure which template to use, or you are new to python, we recommend the package template. 
 
 
 ## Getting started
@@ -32,6 +42,7 @@ python -m cookiecutter https://github.com/DataS-DHSC/dhsc_python_template.git --
 Follow the prompts; if you are asked to re-download `dhsc_python_template`, input `yes`.
 Default responses are shown in the squared brackets; to use them, leave your response
 blank, and press enter.
+The first prompt will allow you to choose between the project and package templates.
 
 Once you've answered all the prompts, your project will be created. Then:
 
