@@ -1,5 +1,4 @@
 import re
-from pathlib import Path
 
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
@@ -8,15 +7,32 @@ import pandas as pd
 import seaborn as sns
 
 
-def million_format(x, pos):
-    """format ticks to be in million format"""
-    s = f"{x/1000000:,g}m"
+def million_format(x: {int, float}, pos: float) -> str:
+    """ format ticks to be in million format
+    eg 1000000 -> 1m
+
+    Args:
+        x (int, float): tick value
+        pos (float): tick position
+
+    Returns:
+        str: formatted tick value
+    """
+    s = f"{x / 1000000:,g}m"
     return s
 
 
-def weekday_date_formatter(x, pos):
+def weekday_date_formatter(x: str, pos: float) -> str:
     """format ticks to be first letter of weekday,
-    and date below if Sunday"""
+       and to display date below if a Sunday
+
+    Args:
+        x (str): tick value
+        pos (float): tick position
+
+    Returns:
+        str: formatted tick value
+    """
     weekday_fmt = mdates.DateFormatter("%a")
     date_fmt = mdates.DateFormatter("%d")
     if weekday_fmt(x) == "Sun":
@@ -26,8 +42,16 @@ def weekday_date_formatter(x, pos):
     return s
 
 
-def get_regex_match(series: pd.Series, regex: str):
-    """returns index of row in series that match regular expression"""
+def get_regex_match(series: pd.Series, regex: str) -> int:
+    """returns index of row in series that match regular expression
+
+    Args:
+        series (pd.Series): series containing values to match againsy
+        regex (str): regular expression to match
+
+    Returns:
+        int: row index that matches regualr expression
+    """
     bool_array = series.apply(lambda x: bool(re.search(regex, str(x).strip())))
     match_idx = bool_array[bool_array].index[0]
     return match_idx
@@ -66,7 +90,7 @@ def set_labels(ax: plt.Axes, title: str, fontsize: int) -> plt.Axes:
     # if legend exists then also update
     if ax.get_legend() is not None:
         handles, labels = ax.get_legend_handles_labels()
-        labels = [l.replace("_", " ").capitalize() for l in labels]
+        labels = [label.replace("_", " ").capitalize() for label in labels]
         ax.legend(
             title=ax.get_legend().get_title().get_text().replace("_", " ").capitalize(),
             handles=handles,
@@ -78,7 +102,16 @@ def set_labels(ax: plt.Axes, title: str, fontsize: int) -> plt.Axes:
 
 
 def convert_to_proportion(df: pd.DataFrame, x: str, total: str):
-    """converts column x of data frame into a proportion of x/total"""
+    """converts column x of data frame into a proportion of x/total
+
+    Args:
+        df (pd.DataFrame): dataframe containing x and total columns
+        x (str): columns containing variable of interest
+        total (str): column containing total variable
+
+    Returns:
+        pd.DataFrame: df with converted column
+    """
     df[x] = df[x].astype("float")
     df.loc[:, x] = df[x] / df[total]
     return df
@@ -93,7 +126,7 @@ def style_plot(ax: plt.Axes) -> plt.Axes:
         ax (Axes):  axis of plot to update
 
     Returns:
-        _type_:  axis of plot to update
+        Axes:  axis of plot to update
     """
     sns.despine()
     ax.grid(which="major", alpha=0.5, linestyle=":", axis="x")

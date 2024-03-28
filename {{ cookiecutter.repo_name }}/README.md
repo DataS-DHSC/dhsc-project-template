@@ -7,51 +7,40 @@ Where this documentation refers to the root folder we mean where this README.md 
 located.
 ```
 
-## Getting started
+## Getting started / Setting up 
 
 To start using this project, [first make sure your system meets its
 requirements](#requirements).
 
-It's suggested that you install this pack and it's requirements within a virtual environment.
-
-## Installing the package (Python Only)
-
-Whilst in the root folder, in the command prompt, you can install the package and its dependencies
-using:
+In order to setup your project, in a **bash terminal**,
+navigate to the root directory and run 
 
 ```shell
-python -m pip install -U pip setuptools
-pip install -e .
+bash -i setup_project.bat
 ```
-or use the `make` command:
-```shell
-make install
-```
+This will perform a number of steps for you, including:
+* Setting up a [virtual environment](#virtual-environments)
+* Installing [pre-commit hooks](#pre-commit-hooks)
+* Initalising a git repository 
 
-This installs an editable version of the package. Meaning, when you update the
-package code, you do not have to reinstall it for the changes to take effect.
-(This saves a lot of time when you test your code)
+## Virtual environments
 
-Remember to update the setup and requirement files inline with any changes to your
-package. The inital files contain the bare minimum to get you started.
+In programming we might work on several projects concurrently, each project depending on different packages of different versions. For example, our `project1` might require version `2.0.1` of `packageA`, and `project2` might require version `3.2.2` of that same `packageA`. If these versions are different enough, our `project1` and `project2` may not run with the wrong version of `packageA` installed. We use virtual environments so that all our projects can have separate, isolated environments with all their required dependencies inside, so working on one project does not disrupt our workflow in another.
 
-## Running the pipeline (Python only)
+Documentation on virtual environments in Python is available [here][python-venv-tutorial]
 
-The entry point for the pipeline is stored within the package and called `run_pipeline.py`.
-To run the pipeline, run the following code in the terminal (whilst in the root directory of the
-project).
+Running the `setup_project.bat` file will create and environment for you called `{{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env` using the `environment.yml` file in the root directory of this project.
 
-```shell
-python src/{{ cookiecutter.repo_name.lower().replace(' ', '_').replace('-', '_') }}/run_pipeline.py
-```
+This environment contains all the packages needed to run the example code and the pre-commit-hooks
 
-Alternatively, most Python IDE's allow you to run the code directly from the IDE using a `run` button.
+* To activate this virtual environment, run `conda`: `conda activate {{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env`.
+* When you are finished with this project, run: `conda deactivate`.
 
-## Required secrets and credentials
+## Required secrets and credentials PLACEHOLDER
 
-To run this project, [you need a `.secrets` file with secrets/credentials as
-environmental variables][docs-loading-environment-variables-secrets]. The
-secrets/credentials should have the following environment variable name(s):
+To run this project, [you need a `.env` file with secrets/credentials as
+environmental variables](docs/user_guide/loading_environment_variables.md). The
+secrets/credentials should have the following environment variable name(s):git
 
 | Secret/credential | Environment variable name | Description                                |
 |-------------------|---------------------------|--------------------------------------------|
@@ -59,37 +48,40 @@ secrets/credentials should have the following environment variable name(s):
 | Credential 1      | `CREDENTIAL_VARIABLE_1`   | Plain English description of Credential 1. |
 
 Once you've added, [load these environment variables using
-`.env`][docs-loading-environment-variables].
+`.env`](docs/user_guide/loading_environment_variables.md).
 
-## Virtual environments
 
-In programming we might work on several projects concurrently, each project depending on different packages of different versions. For example, our `project1` might require version `2.0.1` of `packageA`, and `project2` might require version `3.2.2` of that same `packageA`. If these versions are different enough, our `project1` and `project2` may not run with the wrong version of `packageA` installed. We use virtual environments so that all our projects can have separate, isolated environments with all their required dependencies inside, so working on one project does not disrupt our workflow in another.
+## Pre-commit hooks
 
-### Python
+Git-hooks are scripts that can identify simple issues in code. Pre-commit hooks are run on every commit to ensure issues are identified before code is pushed to a repository hosting platform such as GitHub. If you have run `setup_project.bat` then pre-commit hooks will run automatically. 
 
-* Documentation on virtual environments in Python is available [here](https://docs.python.org/3/tutorial/venv.html)
-* With the repository as the current directory in console, run `conda env create -f environment.yml`. This will create a virtual environment called `{{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env`.
-* [*Optional*] If an environment called `{{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env` already exists on your device, the above step will fail. Run `conda remove --name {{cookiecutter.project_name}}-env --all`, first ensuring you are ***NOT*** using the `{{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env` environment. Then reattempt the previous step.
-* To activate this virtual environment, run `conda`: `conda activate {{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env`.
-* When you are finished with this project, run: `conda deactivate`.
+[*Note*] if you try to make a commit in an environment that does not have access to the pre-commit hook packages the hooks will fail. Activate your environment with `conda`: `conda activate {{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env` and commit your changes again. 
+
+For more information see the [pre-commit hooks section in the user guide](docs/user_guide/pre_commit_hooks.md)
+
+## Running the pipeline 
+
+The entry point for the example pipeline is stored in the root directory and called `main.py`. This scripts imports and runs the pipline located within the src folder. 
+To run the pipeline, run the following code in the terminal (whilst in the root directory of the
+project).
+
+```shell
+python main.py
+```
+
+Alternatively, most Python IDE's allow you to run the code directly from the IDE using a `run` button.
 
 
 ## Documentation
 
-All functions contained in `.py` scripts in the `src` folder should have docstrings explaining what they do, what parameters are passed to the function, what errors the function can raise, and what the function outputs. The [`numpydoc` style](https://numpydoc.readthedocs.io/en/latest/example.html) of formatting docstrings is recommended. Scripts as a whole can contain their own docstrings, in much the same way as a function - simply contain a description of the module inside triple quotation marks `"""` at the top of the script. Examples of such documentation are contained in the `src` modules and submodules.
+All functions contained in `.py` scripts in the `src` folder should have docstrings explaining what they do, what parameters are passed to the function, what errors the function can raise, and what the function outputs. The [Google style][google-docstrings] of formatting docstrings is recommended. Scripts as a whole can contain their own docstrings, in much the same way as a function - simply contain a description of the module inside triple quotation marks `"""` at the top of the script. Examples of such documentation are contained in the `src` modules and submodules.
 
 Having documentation in this way is crucial to meet the minimum requirments of a Reproducible Analytical Pipeline.
-
-### Generating documentation
-
-Once docstrings for functions and modules are put together, we can quickly and easily generate documentation using the [`sphinx`](https://www.sphinx-doc.org/en/master/) package, which is contained in the `{{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env` conda environment in `environment.yml`. This is quick and easy to do, producing documentation in HTML form in the style of [Read the Docs](https://about.readthedocs.com/?ref=readthedocs.com). This presents all modules and functions in an easy to navigate environment with all relevant information, including source code, readily available.
-
-Instructions for running `sphinx` are [here](docs/README.md).
 
 
 ## Code of Conduct
 
-Please note that the {{cookiecutter.repo_name}} project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
+Please note that the {{cookiecutter.repo_name}} project is released with a [Contributor Code of Conduct][contributing-code] . By contributing to this project, you agree to abide by its terms.
 
 ## License
 
@@ -100,53 +92,25 @@ Crown copyright and available under the terms of the Open Government 3.0 licence
 ## Contributing
 
 [If you want to help us build, and improve `{{ cookiecutter.repo_name }}`, view our
-contributing guidelines][contributing].
+contributing guidelines](docs/CONTRIBUTING.md).
 
 ### Requirements
 
-[```Contributors have some additional requirements!```][contributing]
+[```Contributors have some additional requirements!```](docs/CONTRIBUTING.md)
 
 - Python 3.6.1+ installed
 
-- a `.secrets` file with the [required secrets and
+- a `.env` file with the [required secrets and
   credentials](#required-secrets-and-credentials)
-- [load environment variables][docs-loading-environment-variables] from `.env`
-
-To install the contributing requirements, open your terminal and enter:
-```shell
-python -m pip install -U pip setuptools
-pip install -e .[dev]
-pre-commit install
-```
-or use the `make` command:
-```shell
-make install_dev
-```
+- [able to load environment variables](docs/user_guide/loading_environment_variables.md) from `.env`
 
 ## Acknowledgements
 
 [This project structure is based on the `govcookiecutter` template
 project][govcookiecutter].
 
-[contributing]: https://github.com/best-practice-and-impact/govcookiecutter/blob/main/%7B%7B%20cookiecutter.repo_name%20%7D%7D/docs/contributor_guide/CONTRIBUTING.md
+[contributing-code]: https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html 
+[google-docstrings]: https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings
 [govcookiecutter]: https://github.com/best-practice-and-impact/govcookiecutter
-[docs-loading-environment-variables]: https://github.com/best-practice-and-impact/govcookiecutter/blob/main/%7B%7B%20cookiecutter.repo_name%20%7D%7D/docs/user_guide/loading_environment_variables.md
-[docs-loading-environment-variables-secrets]: https://github.com/best-practice-and-impact/govcookiecutter/blob/main/%7B%7B%20cookiecutter.repo_name%20%7D%7D/docs/user_guide/loading_environment_variables.md#storing-secrets-and-credentials
+[python-venv-tutorial]: https://docs.python.org/3/tutorial/venv.html
 
-
-
-## Project Structure 
-
-
-├───.github
-│   └───workflows
-└───placeholder_repo
-    ├───data
-    │   ├───external
-    │   ├───interim
-    │   ├───processed
-    │   └───raw
-    ├───outputs
-    └───src
-        └───placeholder_module
-            └───example_modules

@@ -1,8 +1,7 @@
 # %%
 # standard
-import os
 from pathlib import Path
-
+import logging
 # project specific
 import numpy as np
 import pandas as pd
@@ -17,12 +16,12 @@ def load_and_process() -> pd.DataFrame:
 
     Loads the summary and nims datasets as dfs from the data directory
     Cleans dataframes ready for analysis
-    Calcualtes a monthly total df from the nims dataset
+    Calculates a monthly total df from the nims dataset
 
     Returns:
-        summary_df: dataframe containing summary data
-        nims_df: dataframe containing nims data
-        nims_monthly_totals: dataframe containing monthly totals of nims data
+        pd.DataFrame: dataframe containing summary data
+        pd.DataFrame: dataframe containing nims data
+        pd.DataFrame: dataframe containing monthly totals of nims data
     """
 
     BASE_DIR = Path(__file__).parents[2]
@@ -39,18 +38,19 @@ def load_summary_data(data_path: Path) -> pd.DataFrame:
     """
     Loads summary dataset and cleans
 
-    Renames columns, drops unnecessary rows and cols and explictly casts column data types
+    Renames columns, drops unnecessary rows and cols,
+    and explictly casts column data types
 
     Args:
         data_path (Path): path to data directory
 
     Returns:
-        summary_df: dataframe of cleaned summary data
+        pd.DataFrame: dataframe of cleaned summary data
     """
+    logging.info(f'Reading table 2a from {data_path / "summary.xlsx"}')
     summary_df = pd.read_excel(data_path / "summary.xlsx", sheet_name="Table 2a")
 
     # define start and end
-    # can jsut use drop null w/ 50% threshold instead
     start_row = util.get_regex_match(summary_df.iloc[:, 0], "^Table 2a")
     end_row = util.get_regex_match(summary_df.iloc[:, 0], "^Source: NHS England$")
     summary_df = summary_df.iloc[start_row:end_row, :].reset_index(drop=True)
@@ -102,6 +102,9 @@ def load_nims_df(data_path: Path) -> pd.DataFrame:
     Returns:
         pd.DataFrame: dataframe of nims data
     """
+
+    logging.info(f'Reading file {data_path / "nims.csv"}')
+
     nims_df = pd.read_csv(data_path / "nims.csv")
     nims_df.columns = [x.lower().replace(" ", "_") for x in nims_df.columns]
     nims_df = nims_df.astype(
@@ -124,8 +127,10 @@ def get_monthly_totals(df: pd.DataFrame) -> pd.DataFrame:
         df (DataFrame): _description_
 
     Returns:
-        grouped_df: dataframe holding monthly totals of input data
+        pd.DataFrame: dataframe holding monthly totals of input data
     """
+    logging.info('Creating monthly totals')
+
     grouped_df = df.groupby([df["date"].dt.year, df["date"].dt.month])["total"].sum()
 
     grouped_df.index = grouped_df.index.rename("month", level=1).rename("year", level=0)

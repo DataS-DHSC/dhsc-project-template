@@ -1,6 +1,6 @@
-def main():
+from src.run_pipeline import run_pipeline
 
-    from src.run_pipeline import run_pipeline
+def main():
 
     run_pipeline()
 
