@@ -4,7 +4,7 @@ A cookiecutter template for analytical, Python-based projects within
 the DHSC.
 
 This template helps to set up standardised project structures, and [includes security
-features using pre-commit hooks]({{ cookiecutter.repo_name }}/docs/user_guide/pre_commit_hooks.md) 
+features using pre-commit hooks][docs-pre-commit]
 
 This cookiecutter template is designed for analytical projects in python. 
 If you are developing software or packages - see our dhsc_pacakge_template,
@@ -62,8 +62,7 @@ kicking off your project development](#optional-changes-to-consider-post-project
 To get started your system should meet the following requirements:
 
 1. Python 3.6.1+ installed
-2. The [`cookiecutter` package installed](https://github.com/best-practice-and-impact/govcookiecutter/blob/main/README.md#installing-the-cookiecutter-package)
-
+2. The `cookiecutter` package installed
 
 #### Installing the `cookiecutter` package
 
@@ -118,7 +117,7 @@ project][govcookiecutter].
 
 
 [aqua-book]: https://www.gov.uk/government/publications/the-aqua-book-guidance-on-producing-quality-analysis-for-government
-[docs-pre-commit]: https://github.com/DataS-DHSC/dhsc-project-template/blob/%7B%7B%20cookiecutter.repo_name%20%7D%7D/docs/user_guide/pre_commit_hooks.md
+[docs-pre-commit]: https://github.com/DataS-DHSC/dhsc-project-template/blob/main/%7B%7B%20cookiecutter.repo_name%20%7D%7D/docs/user_guide/pre_commit_hooks.md
 [homebrew]: https://brew.sh/
 [issue-windows-os]: https://github.com/best-practice-and-impact/govcookiecutter/issues/20
 [pluralsight]: https://www.pluralsight.com/tech-blog/managing-python-environments/
