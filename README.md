@@ -4,7 +4,7 @@ A cookiecutter template for analytical, Python-based projects within
 the DHSC.
 
 This template helps to set up standardised project structures, and [includes security
-features using pre-commit hooks][docs-pre-commit]. 
+features using pre-commit hooks](/{{ cookiecutter.repo_name }}/docs/user_guide/pre_commit_hooks.md) 
 
 This cookiecutter template is designed for analytical projects in python. 
 If you are developing software or packages - see our dhsc_pacakge_template,
