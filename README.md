@@ -93,10 +93,9 @@ python -m pip install --user cookiecutter
 ## Optional changes to consider post-project creation
 
 Here are some suggested changes to make before your first commit:
-
+- Checkout the `READ.ME` and have a look inside the `docs/user_guide` folder
+  to familarise yourself with features of the project template
 - make sure the `README.md` reflects what you want to do with your project
-- have a look inside the `docs/user_guide` folder to familarise yourself with features
-  of the project template
 - (if present) confirm that the pull or merge request template checklists meet your
   requirements
   - These can be found at `.github/pull_request_template.md` (GitHub)
