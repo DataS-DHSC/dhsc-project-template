@@ -65,7 +65,6 @@ def load_summary_data(data_path: Path) -> pd.DataFrame:
     ]
     summary_df.columns = [x.lower().replace(" ", "_") for x in final_col_names]
 
-    # GJ unsure if this is best practice ..
     drop_null_cols = [
         x
         for x in summary_df.columns
