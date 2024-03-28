@@ -37,7 +37,7 @@ We use Git to version control the source code. [Please read the Quality assuranc
 [If you want to modify the `.gitignore` files, see the template
 documentation](user_guide/updating_gitignore.md) for further details.
 
-Our source code is stored on {{ cookiecutter.repository_hosting_platform }}. Pull requests into `main` require at least one
+Our source code is stored on GitHub. Pull requests into `main` require at least one
 approved review.
 
 ### Python
@@ -63,4 +63,4 @@ strictly enforced in all cases, for example with long hyperlinks.
 [pre-commit]: https://pre-commit.com 
 [gov-uk]: https://www.gov.uk/
 [google-python-style-guide]: https://google.github.io/styleguide/pyguide.html
-[email]: mailto:{{ cookiecutter.contact_email }}
+[email]: mailto:organisation@email.address

@@ -78,6 +78,8 @@ All functions contained in `.py` scripts in the `src` folder should have docstri
 
 Having documentation in this way is crucial to meet the minimum requirments of a Reproducible Analytical Pipeline.
 
+This package template includes guidance on how to automatically build documentation into a searchable website using [sphinx](docs/README.md).
+
 
 ## Code of Conduct
 
