@@ -1,4 +1,4 @@
-# `dhsc_project_template`
+# `dhsc-project-template`
 
 A cookiecutter template for analytical, Python-based projects within
 the DHSC.
