@@ -16,7 +16,7 @@ In order to setup your project, in a **bash terminal**,
 navigate to the root directory and run 
 
 ```shell
-bash run_setup.bat
+bash -i run_setup.bat
 ```
 This will perform a number of steps for you, including:
 * Setting up a [virtual environment](#virtual-environments)
@@ -37,6 +37,8 @@ This environment contains all the packages needed to run the example code and th
 * When you are finished with this project, run: `conda deactivate`.
 
 ## Required secrets and credentials PLACEHOLDER
+
+*This section is a placeholder, and should be adapted to tell users of your project which secret variables are required*
 
 To run this project, [you need a `.env` file with secrets/credentials as
 environmental variables](docs/user_guide/loading_environment_variables.md). The

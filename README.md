@@ -1,25 +1,15 @@
-# `dhsc_project_template`
+# `dhsc-project-template`
 
-A cookiecutter template Python-based projects within
+A cookiecutter template for analytical, Python-based projects within
 the DHSC.
 
 This template helps to set up standardised project structures, and [includes security
-features using pre-commit hooks][docs-pre-commit]. 
+features using pre-commit hooks][docs-pre-commit]
 
-This cookiecutter offers two differnt templates.
-
-1) The Project template.
-This is designed for analytical projects in python. 
-This template includes automated project setup, security features and example python code
-We recommend you use this template if XX.
-
-2) The Package template.
-This is designed for developing packages in python.
-This template includes everything in the package template, but also contains
-automatic documention and unit testing.
-We recommend you use this template if XX.
-
-If you are unsure which template to use, or you are new to python, we recommend the package template. 
+This cookiecutter template is designed for analytical projects in python. 
+If you are developing software or packages - see our dhsc_pacakge_template,
+which contains additionaly functionality such as unit testing and sphix documentation,
+and  also acts as an installable template.
 
 
 ## Getting started
@@ -30,19 +20,18 @@ terminal, navigate to the directory where you want your new repository to exist.
 run the following command for the latest stable release:
 
 ```shell
-python -m cookiecutter https://github.com/DataS-DHSC/dhsc_python_template.git
+python -m cookiecutter https://github.com/DataS-DHSC/dhsc-project-template.git
 ```
 
 or for a specific branch, tag, or commit SHA `{SPECIFIC}`, run:
 
 ```shell
-python -m cookiecutter https://github.com/DataS-DHSC/dhsc_python_template.git --checkout {SPECIFIC}
+python -m cookiecutter https://github.com/DataS-DHSC/dhsc-project-template.git --checkout {SPECIFIC}
 ```
 
-Follow the prompts; if you are asked to re-download `dhsc_python_template`, input `yes`.
+Follow the prompts; if you are asked to re-download `dhsc-project-template`, input `yes`.
 Default responses are shown in the squared brackets; to use them, leave your response
 blank, and press enter.
-The first prompt will allow you to choose between the project and package templates.
 
 Once you've answered all the prompts, your project will be created. Then:
 
@@ -51,7 +40,7 @@ Once you've answered all the prompts, your project will be created. Then:
 
 2.  In your terminal type
      ```shell
-    bash setup_project.bat
+    bash -i setup_project.bat
     ```
     This will perform a number of steps for you, including:
     * Setting up a virtual environment
@@ -73,8 +62,7 @@ kicking off your project development](#optional-changes-to-consider-post-project
 To get started your system should meet the following requirements:
 
 1. Python 3.6.1+ installed
-2. The [`cookiecutter` package installed](https://github.com/best-practice-and-impact/govcookiecutter/blob/main/README.md#installing-the-cookiecutter-package)
-
+2. The `cookiecutter` package installed
 
 #### Installing the `cookiecutter` package
 
@@ -104,10 +92,9 @@ python -m pip install --user cookiecutter
 ## Optional changes to consider post-project creation
 
 Here are some suggested changes to make before your first commit:
-
+- Checkout the `READ.ME` and have a look inside the `docs/user_guide` folder
+  to familarise yourself with features of the project template
 - make sure the `README.md` reflects what you want to do with your project
-- have a look inside the `docs/user_guide` folder to familarise yourself with features
-  of the project template
 - (if present) confirm that the pull or merge request template checklists meet your
   requirements
   - These can be found at `.github/pull_request_template.md` (GitHub)
@@ -130,7 +117,7 @@ project][govcookiecutter].
 
 
 [aqua-book]: https://www.gov.uk/government/publications/the-aqua-book-guidance-on-producing-quality-analysis-for-government
-[docs-pre-commit]: https://github.com/DataS-DHSC/dhsc-project-template/blob/docs-and-setup/%7B%7B%20cookiecutter.repo_name%20%7D%7D/docs/user_guide/pre_commit_hooks.md
+[docs-pre-commit]: https://github.com/DataS-DHSC/dhsc-project-template/blob/main/%7B%7B%20cookiecutter.repo_name%20%7D%7D/docs/user_guide/pre_commit_hooks.md
 [homebrew]: https://brew.sh/
 [issue-windows-os]: https://github.com/best-practice-and-impact/govcookiecutter/issues/20
 [pluralsight]: https://www.pluralsight.com/tech-blog/managing-python-environments/
