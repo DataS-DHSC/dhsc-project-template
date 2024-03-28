@@ -107,4 +107,3 @@ dependencies:
       - urllib3==2.2.1
       - virtualenv==20.25.1
       - wcwidth==0.2.13
-prefix: C:\ProgramData\Anaconda3\George.Jenkins\envs\fundpy-minimal-env
