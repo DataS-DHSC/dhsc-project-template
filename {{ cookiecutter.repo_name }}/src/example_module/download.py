@@ -12,7 +12,6 @@ from src.example_module import util
 
 def download_nhs_data(config: dict):
     """Runs the download sub-pipline"""
-    # GJ unsure of best practice for setting dir
     BASE_DIR = Path(__file__).parents[2]  
     INPUT_DIR = BASE_DIR / "input"
 
