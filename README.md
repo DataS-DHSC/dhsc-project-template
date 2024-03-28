@@ -20,16 +20,16 @@ terminal, navigate to the directory where you want your new repository to exist.
 run the following command for the latest stable release:
 
 ```shell
-python -m cookiecutter https://github.com/DataS-DHSC/dhsc_python_template.git
+python -m cookiecutter https://github.com/DataS-DHSC/dhsc-project-template.git
 ```
 
 or for a specific branch, tag, or commit SHA `{SPECIFIC}`, run:
 
 ```shell
-python -m cookiecutter https://github.com/DataS-DHSC/dhsc_python_template.git --checkout {SPECIFIC}
+python -m cookiecutter https://github.com/DataS-DHSC/dhsc-project-template.git --checkout {SPECIFIC}
 ```
 
-Follow the prompts; if you are asked to re-download `dhsc_python_template`, input `yes`.
+Follow the prompts; if you are asked to re-download `dhsc-project-template`, input `yes`.
 Default responses are shown in the squared brackets; to use them, leave your response
 blank, and press enter.
 
