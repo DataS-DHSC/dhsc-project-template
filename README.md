@@ -15,7 +15,11 @@ and  also acts as an installable template.
 ## Getting started
 
 [First, make sure your system meets the
-requirements](#requirements-to-create-a-cookiecutter-template). Next, open your
+requirements](#requirements-to-create-a-cookiecutter-template). 
+
+You will need the [`cookiecutter` python package installed](#installing-the-`cookiecutter`-package) - preferabley in a virtual environment. 
+
+Next, open your
 terminal, navigate to the directory where you want your new repository to exist. Then
 run the following command for the latest stable release:
 
