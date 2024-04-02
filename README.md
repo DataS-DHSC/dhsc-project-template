@@ -40,7 +40,7 @@ blank, and press enter.
 Once you've answered all the prompts, your project will be created. Then:
 
 
-1. Navigate to the root directory of your new project in a **bash terminal**
+1. Navigate to the root directory of your new project in a **bash terminal** (for example git bash or the integrated bash terminal in vs code)
 
 2.  In your terminal type
      ```shell
@@ -71,23 +71,15 @@ To get started your system should meet the following requirements:
 #### Installing the `cookiecutter` package
 
 There are many ways to install the `cookiecutter` package. Our recommendation is to
-install it at the system or user level, rather than as a Python package with `pip` or
-`conda`. This ensures it is isolated from the rest of your system, and always available.
+install it within a virtual environment.
 
-For macOS, open your terminal, and [install `cookiecutter` with Homebrew][homebrew]:
-
-```shell
-brew install cookiecutter
-```
-
-For Debian/Ubuntu, use the following commands:
+After creating your virtual environment you can install cookiecutter using either conda 
 
 ```shell
-sudo apt-get install cookiecutter
+conda install conda-forge::cookiecutter
 ```
 
-Otherwise, you can install `cookiecutter` with `pip` — you may wish to create a virtual
-environment first:
+or pip
 
 ```shell
 python -m pip install --user cookiecutter
