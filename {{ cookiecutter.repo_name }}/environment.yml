@@ -2,24 +2,23 @@ name: {{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-e
 channels:
   - conda-forge
 dependencies:
-  - python= {{ cookiecutter.python_version }}
-  - bzip2=1.0.8=hcfcfb64_5
-  - ca-certificates=2024.2.2=h56e8100_0
-  - libexpat=2.6.1=h63175ca_0
-  - libffi=3.4.2=h8ffe710_5
-  - libsqlite=3.45.2=hcfcfb64_0
-  - libzlib=1.2.13=hcfcfb64_5
-  - openssl=3.2.1=hcfcfb64_0
-  - pip=24.0=pyhd8ed1ab_0
-  - python=3.12.2=h2628c8c_0_cpython
-  - setuptools=69.1.1=pyhd8ed1ab_0
-  - tk=8.6.13=h5226925_1
-  - ucrt=10.0.22621.0=h57928b3_0
-  - vc=14.3=hcf57466_18
-  - vc14_runtime=14.38.33130=h82b7239_18
-  - vs2015_runtime=14.38.33130=hcb4865c_18
-  - wheel=0.42.0=pyhd8ed1ab_0
-  - xz=5.2.6=h8d14728_0
+  - python={{ cookiecutter.python_version }}
+  - bzip2=1.0.8
+  - ca-certificates=2024.2.2
+  - libexpat=2.6.1
+  - libffi=3.4.2
+  - libsqlite=3.45.2
+  - libzlib=1.2.13
+  - openssl=3.2.1
+  - pip=24.0
+  - setuptools=69.1.1
+  - tk=8.6.13
+  - ucrt=10.0.22621.0
+  - vc=14.3
+  - vc14_runtime=14.38.33130
+  - vs2015_runtime=14.38.33130
+  - wheel=0.42.0
+  - xz=5.2.6
   - pip:
       - asttokens==2.4.1
       - attrs==23.2.0
@@ -30,8 +29,6 @@ dependencies:
       - certifi==2024.2.2
       - cfgv==3.4.0
       - charset-normalizer==3.3.2
-      - click==8.1.7
-      - colorama==0.4.6
       - comm==0.2.2
       - contourpy==1.2.0
       - cycler==0.12.1
@@ -56,11 +53,9 @@ dependencies:
       - jupyter-client==8.6.1
       - jupyter-core==5.7.2
       - kiwisolver==1.4.5
-      - markdown-it-py==3.0.0
       - matplotlib==3.8.3
       - matplotlib-inline==0.1.6
       - mccabe==0.7.0
-      - mdurl==0.1.2
       - mypy-extensions==1.0.0
       - nbformat==5.10.2
       - nbqa==1.8.4
@@ -82,17 +77,14 @@ dependencies:
       - pure-eval==0.2.2
       - pycodestyle==2.11.1
       - pyflakes==3.2.0
-      - pygments==2.17.2
       - pyparsing==3.1.2
       - python-dateutil==2.9.0.post0
       - python-dotenv==1.0.1
       - pytz==2024.1
       - pywin32==306
-      - pyyaml==6.0.1
       - pyzmq==25.1.2
       - referencing==0.33.0
       - requests==2.31.0
-      - rich==13.7.1
       - rpds-py==0.18.0
       - seaborn==0.13.2
       - six==1.16.0
@@ -107,3 +99,4 @@ dependencies:
       - urllib3==2.2.1
       - virtualenv==20.25.1
       - wcwidth==0.2.13
+
