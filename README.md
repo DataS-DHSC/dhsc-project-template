@@ -19,7 +19,7 @@ If you are unsure which template to use, we reccomend the project template.
 
 |                               	| **Project Template** 	| **Package Template** 	|
 |-------------------------------	|----------------------	|----------------------	|
-| Standardised Folder Structure 	|   :heavy_check_mark:   |   :heavy_check_mark:   |
+| Standardised Folder Structure 	|   </center>:heavy_check_mark:</center>   |   </center>:heavy_check_mark:</center>   |
 | Pre-commit Hooks              	|   :heavy_check_mark:   |   :heavy_check_mark:   |
 | Example Analysis Pipeline     	|   :heavy_check_mark:   |   :heavy_check_mark:   |
 | Automatic Documentation       	|         :x:            |   :heavy_check_mark:   |
