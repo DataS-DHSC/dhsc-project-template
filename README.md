@@ -1,23 +1,29 @@
 # `dhsc-project-template`
 
-A cookiecutter template for analytical, Python-based projects within
+Cookiecutter templates for Python-based projects within
 the DHSC.
 
-This template helps to set up standardised project structures, and [includes security
+This Cookiecutter offers two templates
+
+1) A Project template - for analytical projections
+2) A Package template - for developping software or pacakages
+
+These templates helps to set up standardised project structures, and [includes security
 features using pre-commit hooks][docs-pre-commit]
 
-This cookiecutter template is designed for analytical projects in python. 
-If you are developing software or packages - see our dhsc_pacakge_template,
-which contains additionaly functionality such as unit testing and sphix documentation,
+The Package template includes the same features as the Project template, 
+with such as unit testing and sphix documentation,
 and  also acts as an installable template.
+
+If you are unsure which template to use, we reccomend the project template. 
 
 |                               	| **Project Template** 	| **Package Template** 	|
 |-------------------------------	|----------------------	|----------------------	|
-| Standardised Folder Structure 	|                      	|                      	|
-| Pre-commit Hooks              	|                      	|                      	|
-| Example Analysis Pipeline     	|                      	|                      	|
-| Automatic Documentation       	|                      	|                      	|
-| Example Unit Tests            	|                      	|                      	|
+| Standardised Folder Structure 	|        &check          |        &check          |
+| Pre-commit Hooks              	|        &check          |        &check          |
+| Example Analysis Pipeline     	|        &check          |        &check          |
+| Automatic Documentation       	|        &cross          |        &check          |
+| Example Unit Tests            	|        &cross          |        &check          |
 
 ## Getting started
 
