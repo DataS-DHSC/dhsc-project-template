@@ -11,6 +11,13 @@ If you are developing software or packages - see our dhsc_pacakge_template,
 which contains additionaly functionality such as unit testing and sphix documentation,
 and  also acts as an installable template.
 
+|                               	| **Project Template** 	| **Package Template** 	|
+|-------------------------------	|----------------------	|----------------------	|
+| Standardised Folder Structure 	|                      	|                      	|
+| Pre-commit Hooks              	|                      	|                      	|
+| Example Analysis Pipeline     	|                      	|                      	|
+| Automatic Documentation       	|                      	|                      	|
+| Example Unit Tests            	|                      	|                      	|
 
 ## Getting started
 
