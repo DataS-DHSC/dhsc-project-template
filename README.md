@@ -19,11 +19,11 @@ If you are unsure which template to use, we reccomend the project template.
 
 |                               	| **Project Template** 	| **Package Template** 	|
 |-------------------------------	|----------------------	|----------------------	|
-| Standardised Folder Structure 	|        &check          |        &check          |
-| Pre-commit Hooks              	|        &check          |        &check          |
-| Example Analysis Pipeline     	|        &check          |        &check          |
-| Automatic Documentation       	|        &cross          |        &check          |
-| Example Unit Tests            	|        &cross          |        &check          |
+| Standardised Folder Structure 	|   :heavy_check_mark:   |   :heavy_check_mark:   |
+| Pre-commit Hooks              	|   :heavy_check_mark:   |   :heavy_check_mark:   |
+| Example Analysis Pipeline     	|   :heavy_check_mark:   |   :heavy_check_mark:   |
+| Automatic Documentation       	|         :x:            |   :heavy_check_mark:   |
+| Example Unit Tests            	|         :x:            |   :heavy_check_mark:   |
 
 ## Getting started
 
