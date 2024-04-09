@@ -1,44 +1,40 @@
-# %%
 # standard
-import datetime as dt
-from pathlib import Path
 import logging
 # project specific
 import yaml
-
 # custom
 from src.example_module import download, process, visualise
 
 
-def run_pipeline():
-    """Runs analysis pipline accoridng to config file settings
-    """
-    BASE_DIR = Path(__file__).parents[1]
-    INPUT_DIR = BASE_DIR / "input"
-    OUTPUT_DIR = BASE_DIR / "output"
-
-    with open(INPUT_DIR / "configs" / "example_config.yml", "r") as file:
-        example_config = yaml.safe_load(file)
-
-    example_config["date_stamp"] = dt.datetime.now().strftime("%Y%m%d-%H%M")
-
-    logging.basicConfig(filename=OUTPUT_DIR/ f'{example_config["date_stamp"]}_example.log',
-                         encoding='utf-8', 
-                         level=logging.INFO)
-    logging.info('Running analyis')
-    download.download_nhs_data(example_config)
-
-    summary_df, _, nims_monthly_df = process.load_and_process()
-
-    visualise.make_plots(summary_df, nims_monthly_df, example_config)
+def run_pipeline(base_dir, timestamp):
+    """Runs analysis pipline accoridng to config file settings"""
+    
+    input_dir = base_dir / "input"
+    output_dir = base_dir / "output"
 
     with open(
-        INPUT_DIR / "configs" / f'config_{example_config["date_stamp"]}.yml', "w"
-    ) as outfile:
-        yaml.dump(example_config, outfile)  
+        input_dir / "configs" / "example_config.yml", "r", encoding="utf-8"
+        ) as file:
+        config = yaml.safe_load(file)
+    config["timestamp"] = timestamp
+
+    logging.info("Running analyis")
+
+    download.download_nhs_data(base_dir, config)
+
+    #Don't need the 2nd output, so indicating it should be ignored by using _ as the varname
+    summary_df, _, nims_monthly_df = process.load_and_process(base_dir)
+
+    visualise.make_plots(base_dir,
+                         summary_df,
+                         nims_monthly_df,
+                         config)
     
-    logging.info('Finished')
+    #save the timestamped config so settings are recorded
+    with open(
+        output_dir / f'{timestamp}_config.yml', "w", encoding="utf-8",
+    ) as outfile:
+        yaml.dump(config, outfile)
 
+    logging.info("Finished")
 
-if __name__ == "__main__":
-    run_pipeline()
