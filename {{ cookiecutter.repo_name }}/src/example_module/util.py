@@ -1,5 +1,7 @@
+# standard
 import re
 
+# project specific
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 import numpy as np
@@ -8,7 +10,7 @@ import seaborn as sns
 
 
 def million_format(x: {int, float}, pos: float) -> str:
-    """ format ticks to be in million format
+    """format ticks to be in million format
     eg 1000000 -> 1m
 
     Args:
@@ -42,25 +44,10 @@ def weekday_date_formatter(x: str, pos: float) -> str:
     return s
 
 
-def get_regex_match(series: pd.Series, regex: str) -> int:
-    """returns index of row in series that match regular expression
-
-    Args:
-        series (pd.Series): series containing values to match againsy
-        regex (str): regular expression to match
-
-    Returns:
-        int: row index that matches regualr expression
-    """
-    bool_array = series.apply(lambda x: bool(re.search(regex, str(x).strip())))
-    match_idx = bool_array[bool_array].index[0]
-    return match_idx
-
-
 def set_labels(ax: plt.Axes, title: str, fontsize: int) -> plt.Axes:
     """Modify axes labels
 
-    Formats labels from snake case, sets text color to grey
+    Formats labels from snake_case, sets text color to grey
 
     Args:
         ax (plt.Axes): axis of plot to update
@@ -72,17 +59,17 @@ def set_labels(ax: plt.Axes, title: str, fontsize: int) -> plt.Axes:
     """
 
     ax.set_xlabel(
-        xlabel=ax.get_xlabel().replace("_", " ").capitalize(),
+        xlabel=varname_to_text(ax.get_xlabel()),
         color="grey",
         fontsize=fontsize,
     )
     ax.set_ylabel(
-        ylabel=ax.get_ylabel().replace("_", " ").capitalize(),
+        ylabel=varname_to_text(ax.get_ylabel()),
         color="grey",
         fontsize=fontsize,
     )
     ax.set_title(
-        title,
+        title.title(),
         pad=10,
         fontsize=np.ceil(fontsize * 1.3),
         color="grey",
@@ -90,31 +77,15 @@ def set_labels(ax: plt.Axes, title: str, fontsize: int) -> plt.Axes:
     # if legend exists then also update
     if ax.get_legend() is not None:
         handles, labels = ax.get_legend_handles_labels()
-        labels = [label.replace("_", " ").capitalize() for label in labels]
+        labels = [varname_to_text(label) for label in labels]
         ax.legend(
-            title=ax.get_legend().get_title().get_text().replace("_", " ").capitalize(),
+            title=varname_to_text(ax.get_legend().get_title().get_text()),
             handles=handles,
             labels=labels,
             labelcolor="grey",
         )
         ax.get_legend().get_title().set_color("grey")
     return ax
-
-
-def convert_to_proportion(df: pd.DataFrame, x: str, total: str):
-    """converts column x of data frame into a proportion of x/total
-
-    Args:
-        df (pd.DataFrame): dataframe containing x and total columns
-        x (str): columns containing variable of interest
-        total (str): column containing total variable
-
-    Returns:
-        pd.DataFrame: df with converted column
-    """
-    df[x] = df[x].astype("float")
-    df.loc[:, x] = df[x] / df[total]
-    return df
 
 
 def style_plot(ax: plt.Axes) -> plt.Axes:
@@ -141,3 +112,18 @@ def style_plot(ax: plt.Axes) -> plt.Axes:
             labelfontfamily="sans-serif",
         )
     return ax
+
+
+def text_to_varname(text: str) -> str:
+    """convert a string from text format to snake-case"""
+
+    varname = text.lower().replace(" ", "_")
+    return varname
+
+
+def varname_to_text(varname: str) -> str:
+    """convert a string from snake-case to formatted text"""
+
+    text = varname.replace("_", " ").capitalize()
+    return text
+
