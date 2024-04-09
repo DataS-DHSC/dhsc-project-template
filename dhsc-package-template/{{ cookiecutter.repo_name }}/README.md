@@ -16,7 +16,7 @@ In order to setup your project, in a **bash terminal**,
 navigate to the root directory and run 
 
 ```shell
-bash -i setup_project.bat
+bash -i run_setup.bat
 ```
 This will perform a number of steps for you, including:
 * Setting up a [virtual environment](#virtual-environments)
@@ -37,8 +37,9 @@ This environment contains all the packages needed to run the example code and th
 * When you are finished with this project, run: `conda deactivate`.
 
 ## Required secrets and credentials PLACEHOLDER
+
 *This section is a placeholder, and should be adapted to tell users of your project which secret variables are required*
-  
+
 To run this project, [you need a `.env` file with secrets/credentials as
 environmental variables](docs/user_guide/loading_environment_variables.md). The
 secrets/credentials should have the following environment variable name(s):git
@@ -78,6 +79,8 @@ Alternatively, most Python IDE's allow you to run the code directly from the IDE
 All functions contained in `.py` scripts in the `src` folder should have docstrings explaining what they do, what parameters are passed to the function, what errors the function can raise, and what the function outputs. The [Google style][google-docstrings] of formatting docstrings is recommended. Scripts as a whole can contain their own docstrings, in much the same way as a function - simply contain a description of the module inside triple quotation marks `"""` at the top of the script. Examples of such documentation are contained in the `src` modules and submodules.
 
 Having documentation in this way is crucial to meet the minimum requirments of a Reproducible Analytical Pipeline.
+
+This package template includes guidance on how to automatically build documentation into a searchable website using [sphinx](docs/README.md).
 
 
 ## Code of Conduct

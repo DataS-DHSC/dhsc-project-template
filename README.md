@@ -1,16 +1,29 @@
 # `dhsc-project-template`
 
-A cookiecutter template for analytical, Python-based projects within
+Cookiecutter templates for Python-based projects within
 the DHSC.
 
-This template helps to set up standardised project structures, and [includes security
+This Cookiecutter offers two templates
+
+1) A Project template - for analytical projections
+2) A Package template - for developping software or pacakages
+
+These templates helps to set up standardised project structures, and [includes security
 features using pre-commit hooks][docs-pre-commit]
 
-This cookiecutter template is designed for analytical projects in python. 
-If you are developing software or packages - see our dhsc_pacakge_template,
-which contains additionaly functionality such as unit testing and sphix documentation,
+The Package template includes the same features as the Project template, 
+with such as unit testing and sphix documentation,
 and  also acts as an installable template.
 
+If you are unsure which template to use, we reccomend the project template. 
+
+|                               	| **Project Template** 	| **Package Template** 	|
+|-------------------------------	|----------------------	|----------------------	|
+| Standardised Folder Structure 	|   </center>:heavy_check_mark:</center>   |   </center>:heavy_check_mark:</center>   |
+| Pre-commit Hooks              	|   :heavy_check_mark:   |   :heavy_check_mark:   |
+| Example Analysis Pipeline     	|   :heavy_check_mark:   |   :heavy_check_mark:   |
+| Automatic Documentation       	|         :x:            |   :heavy_check_mark:   |
+| Example Unit Tests            	|         :x:            |   :heavy_check_mark:   |
 
 ## Getting started
 
@@ -25,14 +38,17 @@ run the following command for the latest stable release:
 
 ```shell
 python -m cookiecutter https://github.com/DataS-DHSC/dhsc-project-template.git
+python -m cookiecutter https://github.com/DataS-DHSC/dhsc-project-template.git
 ```
 
 or for a specific branch, tag, or commit SHA `{SPECIFIC}`, run:
 
 ```shell
 python -m cookiecutter https://github.com/DataS-DHSC/dhsc-project-template.git --checkout {SPECIFIC}
+python -m cookiecutter https://github.com/DataS-DHSC/dhsc-project-template.git --checkout {SPECIFIC}
 ```
 
+Follow the prompts; if you are asked to re-download `dhsc-project-template`, input `yes`.
 Follow the prompts; if you are asked to re-download `dhsc-project-template`, input `yes`.
 Default responses are shown in the squared brackets; to use them, leave your response
 blank, and press enter.
@@ -44,6 +60,7 @@ Once you've answered all the prompts, your project will be created. Then:
 
 2.  In your terminal type
      ```shell
+    bash -i setup_project.bat
     bash -i setup_project.bat
     ```
     This will perform a number of steps for you, including:

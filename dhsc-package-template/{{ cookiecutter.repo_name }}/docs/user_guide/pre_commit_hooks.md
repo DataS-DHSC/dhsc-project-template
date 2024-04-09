@@ -42,7 +42,7 @@ The pre-commit hooks installed with this project include:
 
 ## Installation
 
-If you have run `setup_project.bat` - then pre-commit will be installed into your virtual environment and configured for you.
+If you have run `run_setup.bat` - then pre-commit will be installed into your virtual environment and configured for you.
 
 If you are setting up your own environment, you will need to install and configure it yourself
 

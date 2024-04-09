@@ -126,4 +126,3 @@ def varname_to_text(varname: str) -> str:
 
     text = varname.replace("_", " ").capitalize()
     return text
-
