@@ -10,3 +10,7 @@ nims:
 summary:
   regex: "^Appointments.*Summary$"
   file_name: "summary"
+
+plotting:
+  nims_year_range: '[2021, 2022]'
+

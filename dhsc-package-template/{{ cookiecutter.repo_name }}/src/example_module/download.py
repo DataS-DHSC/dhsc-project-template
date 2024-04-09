@@ -1,37 +1,26 @@
-# standard
+#standard
 from pathlib import Path
 import logging
-
+import os
 # project specific
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
-# custom
-from src.example_module import util
 
+def download_nhs_data(base_dir: Path, config: dict):
+    """Runs the download sub-pipeline"""
 
-def download_nhs_data(config: dict):
-    """Runs the download sub-pipline"""
-    # GJ unsure of best practice for setting dir
-    BASE_DIR = Path(__file__).parents[2]  
-    INPUT_DIR = BASE_DIR / "input"
+    input_dir = base_dir / "input"
 
     file_links = scrape_file_links(config["url"])
 
-    download_file(
-        file_links,
-        config["summary"]["regex"],
-        config["summary"]["file_name"],
-        INPUT_DIR / "data",
-    )
-
-    download_file(
-        file_links,
-        config["nims"]["regex"],
-        config["nims"]["file_name"],
-        INPUT_DIR / "data",
-    )
-
+    for file in ['summary', 'nims']:
+        download_file(
+            file_links,
+            config[file]["regex"],
+            config[file]["file_name"],
+            input_dir / "data",
+        )
 
 def scrape_file_links(url: str) -> pd.DataFrame:
     """
@@ -51,17 +40,20 @@ def scrape_file_links(url: str) -> pd.DataFrame:
     if not isinstance(url, str):
         raise TypeError("The url entered was not a string")
 
-    else:
-        html = requests.get(url=url, timeout=5)
+    html = requests.get(url=url, timeout=5)
 
-        soup = BeautifulSoup(html.content, "html.parser")
-        link_results = soup.select('a[href$=".xlsx"], a[href$=".csv"]')
+    soup = BeautifulSoup(html.content, "html.parser")
+    
+    #data will be in .csv or .xlsx so can select links using regex on the file extention
+    link_results = soup.select('a[href$=".xlsx"], a[href$=".csv"]')
 
-        file_links_df = pd.DataFrame()
-        file_links_df.loc[:, "title"], file_links_df["link"] = [
-            [x.find("p").text for x in link_results],
-            [x["href"] for x in link_results],
-        ]
+    file_links_df = pd.DataFrame()
+
+    file_links_df.loc[:, "title"] = [x.find("p").text for x in link_results]
+    #stripping trailing whitespace from title column for future regex matching
+    file_links_df.loc[:, "title"] = [x.strip() for x in file_links_df.title]
+
+    file_links_df.loc[:, "link"] = [x["href"] for x in link_results]
 
     return file_links_df
 
@@ -76,16 +68,26 @@ def download_file(
     then downloads and saves to named directory
 
     Args:
-        file_links_df (pd.DataFrame): df with a 'title' colum and a 'link' column
+        file_links_df (pd.DataFrame): df with a 'title' column and a 'link' column
         file_regex (str): regular expression to match against file_links_df 'title'
         file_name (str): name to save file under
         data_path (Path): directory to save file in
     """
-    file_url = file_links_df.link[util.get_regex_match(file_links_df.title, file_regex)]
-    file = requests.get(file_url, timeout=5)
 
-    with open(data_path / f'{file_name}.{file_url.split(".")[-1]}', "wb") as output:
+    file_regex_match_mask = file_links_df.title.str.contains(file_regex)
+
+    # as regex should only match one file, can just select first row using iloc[0]
+    file_url = file_links_df[file_regex_match_mask].link.iloc[0]
+
+    #if regex matches multiple files raise an error in the log
+    if file_regex_match_mask.sum() > 1:
+        logging.error('! regex %s matches multiple links !' % (file_regex))
+
+    file = requests.get(file_url, timeout=5)
+    file_ext = os.path.splitext(file_url)[1]
+    with open(data_path / f'{file_name}{file_ext}', "wb") as output:
         output.write(file.content)
 
-    logging.info(f'file downloaded to {data_path / file_name}.{file_url.split(".")[-1]}')
-
+    logging.info(
+        'file downloaded to %s\\%s%s' % (data_path, file_name, file_ext))
+    
