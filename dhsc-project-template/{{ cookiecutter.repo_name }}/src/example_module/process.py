@@ -136,3 +136,4 @@ def get_monthly_totals(df: pd.DataFrame) -> pd.DataFrame:
     )
 
     return grouped_df
+

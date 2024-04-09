@@ -109,3 +109,4 @@ def plot_summary(summary_df: pd.DataFrame, config: dict, output_path: Path):
     plt.savefig(
         output_path / f"{config['timestamp']}_{config['summary']['file_name']}.svg"
     )
+

@@ -13,7 +13,7 @@ we'd be happy to help!
 To start contributing, open your terminal, navigate to the root directory and run 
 
 ```shell
-bash -i run_setup.bat
+bash -i setup_project.bat
 ```
 This will perform a number of steps for you, including:
 * Setting up a virtual environment 

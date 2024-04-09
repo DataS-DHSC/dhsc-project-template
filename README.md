@@ -28,11 +28,16 @@ If you are unsure which template to use, we reccomend the project template.
 ## Getting started
 
 [First, make sure your system meets the
-requirements](#requirements-to-create-a-cookiecutter-template). Next, open your
+requirements](#requirements-to-create-a-cookiecutter-template). 
+
+You will need the [`cookiecutter` python package installed](#requirements-to-create-a-cookiecutter-template) - preferably in a virtual environment. 
+
+Next, open your
 terminal, navigate to the directory where you want your new repository to exist. Then
 run the following command for the latest stable release:
 
 ```shell
+python -m cookiecutter https://github.com/DataS-DHSC/dhsc-project-template.git
 python -m cookiecutter https://github.com/DataS-DHSC/dhsc-project-template.git
 ```
 
@@ -40,8 +45,10 @@ or for a specific branch, tag, or commit SHA `{SPECIFIC}`, run:
 
 ```shell
 python -m cookiecutter https://github.com/DataS-DHSC/dhsc-project-template.git --checkout {SPECIFIC}
+python -m cookiecutter https://github.com/DataS-DHSC/dhsc-project-template.git --checkout {SPECIFIC}
 ```
 
+Follow the prompts; if you are asked to re-download `dhsc-project-template`, input `yes`.
 Follow the prompts; if you are asked to re-download `dhsc-project-template`, input `yes`.
 Default responses are shown in the squared brackets; to use them, leave your response
 blank, and press enter.
@@ -49,10 +56,11 @@ blank, and press enter.
 Once you've answered all the prompts, your project will be created. Then:
 
 
-1. Navigate to the root directory of your new project in a **bash terminal**
+1. Navigate to the root directory of your new project in a **bash terminal** (for example git bash or the integrated bash terminal in vs code)
 
 2.  In your terminal type
      ```shell
+    bash -i setup_project.bat
     bash -i setup_project.bat
     ```
     This will perform a number of steps for you, including:
@@ -80,23 +88,15 @@ To get started your system should meet the following requirements:
 #### Installing the `cookiecutter` package
 
 There are many ways to install the `cookiecutter` package. Our recommendation is to
-install it at the system or user level, rather than as a Python package with `pip` or
-`conda`. This ensures it is isolated from the rest of your system, and always available.
+install it within a virtual environment.
 
-For macOS, open your terminal, and [install `cookiecutter` with Homebrew][homebrew]:
-
-```shell
-brew install cookiecutter
-```
-
-For Debian/Ubuntu, use the following commands:
+After creating your virtual environment you can install cookiecutter using either conda 
 
 ```shell
-sudo apt-get install cookiecutter
+conda install conda-forge::cookiecutter
 ```
 
-Otherwise, you can install `cookiecutter` with `pip` — you may wish to create a virtual
-environment first:
+or pip
 
 ```shell
 python -m pip install --user cookiecutter
