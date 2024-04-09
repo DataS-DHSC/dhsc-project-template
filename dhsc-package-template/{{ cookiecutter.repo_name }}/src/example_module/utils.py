@@ -1,11 +1,13 @@
-#standard
+# standard
 import re
-#project specific
+
+# project specific
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
+
 
 def million_format(x: {int, float}, pos: float) -> str:
     """format ticks to be in million format
@@ -111,14 +113,15 @@ def style_plot(ax: plt.Axes) -> plt.Axes:
         )
     return ax
 
-def text_to_varname(text:str) -> str: 
-    """ convert a string from text format to snake-case"""
+
+def text_to_varname(text: str) -> str:
+    """convert a string from text format to snake-case"""
 
     varname = text.lower().replace(" ", "_")
     return varname
 
 
-def varname_to_text(varname:str) -> str:
+def varname_to_text(varname: str) -> str:
     """convert a string from snake-case to formatted text"""
 
     text = varname.replace("_", " ").capitalize()

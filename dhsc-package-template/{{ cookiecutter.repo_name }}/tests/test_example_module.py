@@ -1,7 +1,5 @@
 # %%
-""" GJ: Could possibly do with some more complex unit tests in here
-perhaps demonstrating pytest.mock"""
-
+""" """
 #general
 import os
 from pathlib import Path
@@ -10,17 +8,16 @@ import pandas as pd
 import yaml
 import pytest
 #custom
-from src.example_module import download, visualise, process, util
+from src.example_module import download, process
 
-BASE_DIR = Path(__file__).parents[1]
-INPUT_DIR = BASE_DIR / "input"
-with open(INPUT_DIR / "configs/example_config.yml", "r") as file:
+base_dir = Path(__file__).parents[1]
+input_dir = base_dir / "input"
+with open(
+    input_dir / "configs/example_config.yml", "r", encoding= "utf-8"
+    ) as file:
     example_config = yaml.safe_load(file)
-
-
 class TestDownload:
     url = example_config["url"]
-
     # test scrape file links returns an error correctly
     def test_url_type_error(self):
         with pytest.raises(TypeError):
@@ -28,7 +25,7 @@ class TestDownload:
 
 
 class TestProcess:
-    data_path = INPUT_DIR / "data"
+    data_path = input_dir / "data"
     summary_expected_columns = [
         "weekday",
         "appointment_date",
