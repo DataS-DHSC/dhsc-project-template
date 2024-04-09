@@ -60,8 +60,7 @@ Once you've answered all the prompts, your project will be created. Then:
 
 2.  In your terminal type
      ```shell
-    bash -i setup_project.bat
-    bash -i setup_project.bat
+    bash -i run_setup.bat
     ```
     This will perform a number of steps for you, including:
     * Setting up a virtual environment
