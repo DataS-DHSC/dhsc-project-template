@@ -3,8 +3,8 @@ import shutil
 
 from pathlib import Path
 
-ext_dir = Path(__file__).parents[1]
-base_dir = ext_dir / '{{cookiecutter.repo_name}}'
+base_dir = Path(os.getcwd())
+#base_dir = ext_dir / '{{cookiecutter.repo_name}}'
 def remove(path):
     if os.path.isfile(path):
         os.remove(path)
