@@ -1,9 +1,11 @@
+{%- if cookiecutter.include_example_code == "yes" -%}
 #standard
 from pathlib import Path
 import datetime as dt
 import logging
 #custom
 from src.run_pipeline import run_pipeline
+
 def main():
 
     #define the root directory to pass to functions in the pipeline
@@ -24,3 +26,12 @@ def main():
 if __name__ == "__main__":
     main()
     
+{%- elif cookiecutter.include_example_code == "no" -%}
+
+def main():
+    ""
+
+if __name__ == "__main__":
+    main()
+
+{% endif %}

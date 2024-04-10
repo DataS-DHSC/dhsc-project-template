@@ -23,7 +23,6 @@ class TestDownload:
         with pytest.raises(TypeError):
             download.scrape_file_links(12345)
 
-
 class TestProcess:
     data_path = input_dir / "data"
     summary_expected_columns = [
