@@ -38,13 +38,11 @@ run the following command for the latest stable release:
 
 ```shell
 python -m cookiecutter https://github.com/DataS-DHSC/dhsc-project-template.git
-python -m cookiecutter https://github.com/DataS-DHSC/dhsc-project-template.git
 ```
 
 or for a specific branch, tag, or commit SHA `{SPECIFIC}`, run:
 
 ```shell
-python -m cookiecutter https://github.com/DataS-DHSC/dhsc-project-template.git --checkout {SPECIFIC}
 python -m cookiecutter https://github.com/DataS-DHSC/dhsc-project-template.git --checkout {SPECIFIC}
 ```
 
