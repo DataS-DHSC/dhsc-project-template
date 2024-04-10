@@ -4,6 +4,7 @@
   "project_name": "Your new project name",
   "repo_name": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
   "overview": "Brief overview of your project.",
+  "include_example_code":["yes","no"],
   "project_version": "0.0.1",
   "python_version": "3.12.2"
 }
