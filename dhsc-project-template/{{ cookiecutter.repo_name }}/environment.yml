@@ -2,6 +2,7 @@ name: {{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-e
 channels:
   - conda-forge
 dependencies:
+  - python={{ cookiecutter.python_version }}
   - bzip2=1.0.8
   - ca-certificates=2024.2.2
   - intel-openmp=2024.1.0
