@@ -47,7 +47,7 @@ def scrape_file_links(url: str) -> pd.DataFrame:
 
     soup = BeautifulSoup(html.content, "html.parser")
 
-    # data will be in .csv or .xlsx so can select links using regex on the file extention
+    # data will be in .csv or .xlsx so can select links using regex on the file ext
     link_results = soup.select('a[href$=".xlsx"], a[href$=".csv"]')
 
     file_links_df = pd.DataFrame()

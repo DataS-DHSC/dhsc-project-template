@@ -51,7 +51,8 @@ def load_summary_data(data_path: Path) -> pd.DataFrame:
     # imported excel file is messy with lots of NaNs, we only want the data
     raw_summary_df = pd.read_excel(data_path / "summary.xlsx", sheet_name="Table 2a")
 
-    # finding index in the 'date' column that are dates (not NaN or str) selects the data we want
+    # finding index in the 'date' column that are dates,
+    # (not NaN or str) selects the data we want
     date_mask = raw_summary_df.iloc[:, 1].apply(
         lambda x: isinstance(x, datetime.datetime)
     )
@@ -136,4 +137,3 @@ def get_monthly_totals(df: pd.DataFrame) -> pd.DataFrame:
     )
 
     return grouped_df
-
