@@ -69,8 +69,10 @@ Is telling us that in the file `myfile.py` on line 28 there is a "line too long 
 #### Inline ingoring flake8 errors
 
 Flake8 will prevent you from commiting until you have resolved the issues in your code.
-However sometime we might have a geniune reason for an issue. 
-In these situation you can ignore specific errors on a line with # noqa: <error>
+
+However sometimes we might have a geniune reason for an issue. 
+
+In these situation you can ignore specific errors on a line with `# noqa: <error>`
 
 For example:
 `# noqa: E501` at the end of line 28 would ignore the line too long error
