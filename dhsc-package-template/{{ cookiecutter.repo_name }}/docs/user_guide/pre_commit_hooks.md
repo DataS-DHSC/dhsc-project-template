@@ -52,6 +52,28 @@ If you are setting up your own environment, you will need to install and configu
 
 - run `pre-commit install` in your terminal to set up `pre-commit` to run when code is
   committed.
+  
+## Using the `Flake8` pre-commit hook
+
+Flake8 is a wrapper around a a number of linters. 
+Flake8 will display warnings for issues in your code in the following format 
+
+`file:{line_number}:{character_number}: {error_code} {error detail}`
+
+for example 
+
+`myfile.py:28:80: E501 line too long (98 > 79 characters)`
+
+Is telling us that in the file `myfile.py` on line 28 there is a "line too long error" (code E501)
+
+#### Inline ingoring flake8 errors
+
+Flake8 will prevent you from commiting until you have resolved the issues in your code.
+However sometime we might have a geniune reason for an issue. 
+In these situation you can ignore specific errors on a line with # noqa: <error>
+
+For example:
+`# noqa: E501` at the end of line 28 would ignore the line too long error
 
 ## Using the `detect-secrets` pre-commit hook
 
