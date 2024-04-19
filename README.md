@@ -17,7 +17,7 @@ and  also acts as an installable template.
 
 If you are unsure which template to use, we reccomend the project template. 
 
-|                               	| **Project Template** 	| **Package Template** 	|
+|                               	| **Analytical Project Template** 	| **Package Template** 	|
 |-------------------------------	|----------------------	|----------------------	|
 | Standardised Folder Structure 	|   </center>:heavy_check_mark:</center>   |   </center>:heavy_check_mark:</center>   |
 | Pre-commit Hooks              	|   :heavy_check_mark:   |   :heavy_check_mark:   |
