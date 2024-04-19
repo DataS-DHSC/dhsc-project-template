@@ -127,7 +127,7 @@ project][govcookiecutter].
 
 
 [aqua-book]: https://www.gov.uk/government/publications/the-aqua-book-guidance-on-producing-quality-analysis-for-government
-[docs-pre-commit]: https://github.com/DataS-DHSC/dhsc-project-template/blob/main/%7B%7B%20cookiecutter.repo_name%20%7D%7D/docs/user_guide/pre_commit_hooks.md
+[docs-pre-commit]: https://github.com/DataS-DHSC/dhsc-project-template/blob/main/dhsc-project-template/%7B%7B%20cookiecutter.repo_name%20%7D%7D/docs/user_guide/pre_commit_hooks.md
 [homebrew]: https://brew.sh/
 [issue-windows-os]: https://github.com/best-practice-and-impact/govcookiecutter/issues/20
 [pluralsight]: https://www.pluralsight.com/tech-blog/managing-python-environments/
