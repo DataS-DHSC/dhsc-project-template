@@ -8,7 +8,7 @@ This Cookiecutter offers two templates
 1) A Project template - for analytical projects
 2) A Package template - for developping software or packages
 
-These templates helps to set up standardised project structures, and [includes security
+These templates help to set up standardised project structures, and [includes security
 features using pre-commit hooks][docs-pre-commit]
 
 The Package template includes the same features as the Project template, 
