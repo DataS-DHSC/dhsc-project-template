@@ -5,15 +5,14 @@ the DHSC.
 
 This Cookiecutter offers two templates
 
-1) A Project template - for analytical projects
-2) A Package template - for developping software or packages
+1) An Analytical Project template - for analytical projects
+2) A Package template - for developing software or packages
 
 These templates help to set up standardised project structures, and [includes security
 features using pre-commit hooks][docs-pre-commit]
 
-The Package template includes the same features as the Project template, 
-with such as unit testing and sphix documentation,
-and  also acts as an installable template.
+The Package template includes the same features as the Analytical Project template, 
+but has some addtional features such as unit testing and sphix automatic documentation.
 
 If you are unsure which template to use, we reccomend the project template. 
 
