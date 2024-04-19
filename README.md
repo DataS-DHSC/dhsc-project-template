@@ -5,19 +5,18 @@ the DHSC.
 
 This Cookiecutter offers two templates
 
-1) A Project template - for analytical projections
-2) A Package template - for developping software or pacakages
+1) An Analytical Project template - for analytical projects
+2) A Package template - for developing software or packages
 
-These templates helps to set up standardised project structures, and [includes security
+These templates help to set up standardised project structures, and [includes security
 features using pre-commit hooks][docs-pre-commit]
 
-The Package template includes the same features as the Project template, 
-with such as unit testing and sphix documentation,
-and  also acts as an installable template.
+The Package template includes the same features as the Analytical Project template, 
+but has some addtional features such as unit testing and sphix automatic documentation.
 
 If you are unsure which template to use, we reccomend the project template. 
 
-|                               	| **Project Template** 	| **Package Template** 	|
+|                               	| **Analytical Project Template** 	| **Package Template** 	|
 |-------------------------------	|----------------------	|----------------------	|
 | Standardised Folder Structure 	|   </center>:heavy_check_mark:</center>   |   </center>:heavy_check_mark:</center>   |
 | Pre-commit Hooks              	|   :heavy_check_mark:   |   :heavy_check_mark:   |
@@ -127,7 +126,7 @@ project][govcookiecutter].
 
 
 [aqua-book]: https://www.gov.uk/government/publications/the-aqua-book-guidance-on-producing-quality-analysis-for-government
-[docs-pre-commit]: https://github.com/DataS-DHSC/dhsc-project-template/blob/main/%7B%7B%20cookiecutter.repo_name%20%7D%7D/docs/user_guide/pre_commit_hooks.md
+[docs-pre-commit]: https://github.com/DataS-DHSC/dhsc-project-template/blob/main/dhsc-project-template/%7B%7B%20cookiecutter.repo_name%20%7D%7D/docs/user_guide/pre_commit_hooks.md
 [homebrew]: https://brew.sh/
 [issue-windows-os]: https://github.com/best-practice-and-impact/govcookiecutter/issues/20
 [pluralsight]: https://www.pluralsight.com/tech-blog/managing-python-environments/
