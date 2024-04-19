@@ -21,7 +21,7 @@ Follow these steps in order to do so
 * Use the `git remote add origin` command followed by the GitHub repository URL copied earlier to set the remote origin for your local repository.
 
 ### (In terminal) `git branch -m main`
-* Rename the default branch form 'master' to 'main', to align with GitHub conventions.
+* Rename the default branch from 'master' to 'main', to align with GitHub conventions.
 
 ### (In terminal) `git add .`
 * Stage all project files 
