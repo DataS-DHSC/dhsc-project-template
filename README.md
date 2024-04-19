@@ -5,8 +5,8 @@ the DHSC.
 
 This Cookiecutter offers two templates
 
-1) A Project template - for analytical projections
-2) A Package template - for developping software or pacakages
+1) A Project template - for analytical projects
+2) A Package template - for developping software or packages
 
 These templates helps to set up standardised project structures, and [includes security
 features using pre-commit hooks][docs-pre-commit]
