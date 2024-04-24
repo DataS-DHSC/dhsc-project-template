@@ -29,7 +29,7 @@ In programming we might work on several projects concurrently, each project depe
 
 Documentation on virtual environments in Python is available [here][python-venv-tutorial]
 
-Running the `setup_project.bat` file will create and environment for you called `{{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env` using the `environment.yml` file in the root directory of this project.
+Running the `run_setup.bat` file will create and environment for you called `{{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env` using the `environment.yml` file in the root directory of this project.
 
 This environment contains all the packages needed to run the example code and the pre-commit-hooks
 

@@ -55,7 +55,7 @@ Once you've added, [load these environment variables using
 
 ## Pre-commit hooks
 
-Git-hooks are scripts that can identify simple issues in code. Pre-commit hooks are run on every commit to ensure issues are identified before code is pushed to a repository hosting platform such as GitHub. If you have run `setup_project.bat` then pre-commit hooks will run automatically. 
+Git-hooks are scripts that can identify simple issues in code. Pre-commit hooks are run on every commit to ensure issues are identified before code is pushed to a repository hosting platform such as GitHub. If you have run `run_setup.bat` then pre-commit hooks will run automatically. 
 
 [*Note*] if you try to make a commit in an environment that does not have access to the pre-commit hook packages the hooks will fail. Activate your environment with `conda`: `conda activate {{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env` and commit your changes again. 
 

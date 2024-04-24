@@ -3,12 +3,13 @@ import shutil
 
 from pathlib import Path
 
-base_dir = Path(os.getcwd())
 def remove(path):
     if os.path.isfile(path):
         os.remove(path)
     elif os.path.isdir(path):
         shutil.rmtree(path)
+
+base_dir = Path(os.getcwd())
 
 keep_example_code = '{{cookiecutter.include_example_code}}' == 'yes'
 if not keep_example_code:

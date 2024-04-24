@@ -64,10 +64,16 @@ Once you've answered all the prompts, your project will be created. Then:
     * Installing pre-commit hooks
     * Initalising a git repository 
 
-3. Stage all your project files, and make your first commit
+3. Set up a repo on Github to track your project folder
+   Create a new repo on Github and copy the url.
+   Stage all your project files, and make your first commit
+   
    ```shell
+   git remote add origin {url}
+   git branch -m main
    git add .
    git commit -m "Initial commit"
+   git push -u origin main
    ```
 
 Once you've completed these steps, [consider making some optional changes before

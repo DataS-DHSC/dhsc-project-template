@@ -22,7 +22,7 @@ def make_plots(
     """runs the plotting subpipeline"""
 
     output_dir = base_dir / "output"
-    
+
     plt.set_loglevel('WARNING')
     
     plot_nims_monthly(nims_monthly_totals, config, output_dir)
@@ -43,7 +43,7 @@ def plot_nims_monthly(
     logging.info("Plotting nims monthly data")
 
     # as config stores strings, need to use ast package to evaluate as a list
-    year_range = ast.literal_eval(config["plotting"]["nims_year_range"])
+    year_range = ast.literal_eval(config["plotting"]["nims_year_range"])  # noqa: F841
 
     fig, ax = plt.subplots()
     nims_plot = sns.lineplot(
