@@ -23,6 +23,8 @@ def make_plots(
 
     output_dir = base_dir / "output"
 
+    plt.set_loglevel('WARNING')
+    
     plot_nims_monthly(nims_monthly_totals, config, output_dir)
 
     plot_summary(summary_df, config, output_dir)
