@@ -1,5 +1,10 @@
 [tool.pytest.ini_options]
-pythonpath = "{{ cookiecutter.repo_name }}/src/example_module"
+pythonpath = "qsat_tender_scraper/src/example_module"
 addopts = [
     "-vv",
     "--import-mode=importlib"]
+
+
+[tool.bandit]
+exclude_dirs = ["tests"]
+
