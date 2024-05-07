@@ -884,6 +884,7 @@ docs/reference/api/*
 
 # Ignore the `.env` file
 .env
+{{ cookiecutter.repo_name }}/.env
 
 # Ignore R artifacts
 *.Renviron
