@@ -14,6 +14,7 @@ For this repository, we are using `pre-commit` for a number of purposes:
   a "secret"](#definition-of-a-secret-according-to-detect-secrets)
 - cleaning Jupyter notebooks, which means removing all outputs, execution counts,
   Python kernels, and, for Google Colaboratory (Colab), stripping out user information.
+- linting and formatting our code
 
 We have configured `pre-commit` to run automatically on every commit. By running on
 each commit, we ensure that `pre-commit` will be able to detect all contraventions and
@@ -29,16 +30,27 @@ For security reasons, it is recommended that you manually download your notebook
 commit up locally to ensure pre-commit hooks are run on your changes.
 ```
 
+Some pre-commit hooks will automatically make changes to your code (usually when these changes dont affect the codes function) while others will point you towards security or formatting issues in the code.
 
 The pre-commit hooks installed with this project include:
 
-* [*nbstripout*][nbstripout] - Clears outputs of Jupyter notebooks - this hook will change your code
+**Linters** - Change the style or fomatting of code to make it more readable
 * [*isort*][isort] - sorts python imports - this hook will change your code
 * [*black*][black] - formats code to be inline with the [PEP8 style guide for pyhton code](https://peps.python.org/pep-0008/) - this hook will change your code
 * [*flake8*][flake8] - 'lints' code, checking for formatting and syntax errors. this hook will *not* change your code for you, but will provide instructions on how to change it
 * [*nbqa*][nbqa] - applys black and isort to jupyter notebooks. 
+**Security** - Prevent commits of sensitive infomration or inclusion of security risks in code 
+* [*nbstripout*][nbstripout] - Clears outputs of Jupyter notebooks - this hook will change your code
 * [*detect-secrets*][detect-secrets] - *attempts* to identify secret within code. This should be considered as a complement to manually checking for secrets, not a replacemet. This hook will not change your code - but will alert you to the presence of  possible secrets.
 * [*bandit*][bandit] -  *attempts* to identify security risks within code. This hook will not change your code - but will alert you to the presence of possible security risks.
+
+
+After you have run-precommit and made any neccessary changes, you will have to run 
+```
+it add .
+git commit 
+```
+Again in order to commit your changes
 
 ## Installation
 
@@ -81,9 +93,7 @@ For example:
 
 ```{note} Secret detection limitations
 The `detect-secrets` package does its best to prevent accidental committing of secrets,
-but it may miss things. Instead, focus on good software development practices! See the
-[definition of a secret for further
-information](#definition-of-a-secret-according-to-detect-secrets).
+but it may miss things. Instead, focus on good software development practices! 
 ```
 
 ### Definition of a "secret" according to `detect-secrets`
@@ -150,6 +160,21 @@ python
 # Example of insecure code
 os.system("rm -rf /")  #nosec
 ```
+
+### Changing the pyproject.toml
+In additon to allowlisting a specific line using `nosec`, we can configure bandit to ignore files or folders by changing the pyproject.toml file in the root of the directory.
+This is especially useful if wer are running unit tests, which might need to use some mehtods such as `assert` which bandit considers a security risk when used in soruce code. 
+In order to add a folder to badnits ignore list, add it to the `exclude_dirs` section under  `[tool.bandit]` in the pyproject.toml 
+
+for example
+```
+[tool.bandit]
+exclude_dirs = ["tests"]
+```
+will configure bandit to not run security checks on any files in the tests folder. 
+
+**Warning - configuring bandit to ignore entire folders can leave your code vunerable. We reccomend only include unit test folders in the pyproject.toml, and using #nosec to ignore false positives in any other files** 
+
 ## Keeping specific Jupyter notebook outputs
 
 It may be necessary or useful to keep certain output cells of a Jupyter notebook, for
