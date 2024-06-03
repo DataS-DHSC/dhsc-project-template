@@ -47,7 +47,7 @@ The pre-commit hooks installed with this project include:
 
 After you have run-precommit and made any neccessary changes, you will have to run 
 ```
-it add .
+git add .
 git commit 
 ```
 Again in order to commit your changes
