@@ -62,7 +62,7 @@ To download the template - you will need the [`cookiecutter` python package inst
   
 6. Deactivate your cookiecutter setup environment:
     ```shell
-    conda deactivate cookiecutter-setup-env
+    conda deactivate 
     ```
 
 ### Setting up your project
