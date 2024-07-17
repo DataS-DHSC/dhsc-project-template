@@ -29,29 +29,45 @@ If you are unsure which template to use, we reccomend the project template.
 [First, make sure your system meets the
 requirements](#requirements-to-create-a-cookiecutter-template). 
 
-You will need the [`cookiecutter` python package installed](#requirements-to-create-a-cookiecutter-template) - preferably in a virtual environment. 
+### Downloading the template
 
-Next, open your
-terminal, navigate to the directory where you want your new repository to exist. Then
-run the following command for the latest stable release:
+To download the template - you will need the [`cookiecutter` python package installed](#requirements-to-create-a-cookiecutter-template) - preferably in a virtual environment. 
 
-```shell
-python -m cookiecutter https://github.com/DataS-DHSC/dhsc-project-template.git
-```
+1. Open your terminal, navigate to the directory where you want your new repository to exist.
+  
+2. Create a conda environment to hold cookiecutter - then activate it
+    ```shell
+    conda create -n cookiecutter-setup-env
+    conda activate cookiecutter-setup-env
+    ```
+     
+3. Download python and cookiecutter
+   ```shell
+   conda install python
+   pip install cookiecutter
+   ```
 
-or for a specific branch, tag, or commit SHA `{SPECIFIC}`, run:
+4. Run the following command to download the latest stable release of the template:
+   ```shell
+   python -m cookiecutter https://github.com/DataS-DHSC/dhsc-project-template.git
+   ```
+   or for a specific branch, tag, or commit SHA `{SPECIFIC}`, run:
+   ```shell
+   python -m cookiecutter https://github.com/DataS-DHSC/dhsc-project-template.git --checkout {SPECIFIC}
+   ```
 
-```shell
-python -m cookiecutter https://github.com/DataS-DHSC/dhsc-project-template.git --checkout {SPECIFIC}
-```
+5. Follow the prompts; if you are asked to re-download `dhsc-project-template`, input `yes`.
+   - Default responses are shown in the squared brackets; to use them, leave your response blank, and press enter.
+   - Once you've answered all the prompts, your project will be created.
+  
+6. Deactivate your cookiecutter setup environment:
+    ```shell
+    conda deactivate cookiecutter-setup-env
+    ```
 
-Follow the prompts; if you are asked to re-download `dhsc-project-template`, input `yes`.
-Follow the prompts; if you are asked to re-download `dhsc-project-template`, input `yes`.
-Default responses are shown in the squared brackets; to use them, leave your response
-blank, and press enter.
+### Setting up your project
 
-Once you've answered all the prompts, your project will be created. Then:
-
+Now your template is downloaded you're ready to set up your project
 
 1. Navigate to the root directory of your new project in a **bash terminal** (for example git bash or the integrated bash terminal in vs code)
 
@@ -60,7 +76,7 @@ Once you've answered all the prompts, your project will be created. Then:
     bash -i run_setup.bat
     ```
     This will perform a number of steps for you, including:
-    * Setting up a virtual environment
+    * Setting up a virtual environment (containing packages needed to run pre-commit hooks
     * Installing pre-commit hooks
     * Initalising a git repository 
 
@@ -101,7 +117,7 @@ conda install conda-forge::cookiecutter
 or pip
 
 ```shell
-python -m pip install --user cookiecutter
+python -m pip install cookiecutter
 ```
 
 ## Optional changes to consider post-project creation
