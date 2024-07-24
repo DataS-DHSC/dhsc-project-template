@@ -17,7 +17,10 @@ if not keep_example_code:
     remove(src_path)
     #make new empty src folder
     os.makedirs(src_path, exist_ok=True)
-
+    #remove old env
+    remove(base_dir /'environment.yml')
+    #rename no example code env
+    os.rename('no_ex_code_environment.yml', 'environment.yml')
     
 
 
